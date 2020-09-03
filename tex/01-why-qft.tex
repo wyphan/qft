@@ -49,10 +49,10 @@ where $m$ is the mass of the particle, the uncertainty in energy is above the th
 \end{equation*}
 
 \noindent Solving for $L$
-\begin{align}
-\dfrac{\hbar c}{L} &= 2 m c ^2 \nonumber \\
+\begin{align*}
+\dfrac{\hbar c}{L} &= 2 m c ^2 \\
 L &= \dfrac{\hbar c}{2 m c^2} = \dfrac{\hbar}{2mc}
-\end{align}
+\end{align*}
 
 \newpage
 
@@ -100,11 +100,11 @@ $\lambda \ll \lambda_\mathrm{Compton}$ & $\lambda \sim \lambda_\mathrm{Compton}$
 \section{Causality}
 
 Consider the amplitude in quantum mechanics for a free particle to propagate from $ \vec{x} = \vec{x}_0 $ at $ t = 0 $ to $ \vec{x} $ at $t$:
-\begin{align}
-& \braket{ \vec{x} | e^{ -i \hat{H} t } | \vec{x}_0 } \qquad \mathrm{position~eigenstate} \nonumber\\
-&= \braket{ \vec{x} | e^{ -i {[ \hat{p}^2 + m^2 ]}^\frac{1}{2} t } | \vec{x}_0 } \nonumber\\
+\begin{align*}
+& \braket{ \vec{x} | e^{ -i \hat{H} t } | \vec{x}_0 } \qquad \mathrm{position~eigenstate} \\
+&= \braket{ \vec{x} | e^{ -i {[ \hat{p}^2 + m^2 ]}^\frac{1}{2} t } | \vec{x}_0 } \\
 &= \int \mathrm{d}^3 \vec{p} ~ \braket{ \vec{x} | e^{ -i {[ \hat{p}^2 + m^2 ]}^\frac{1}{2} t } | \vec{p} } \braket{ \vec{p} | \vec{x}_0 }
-\end{align}
+\end{align*}
 
 % Page 3a
 
@@ -112,14 +112,14 @@ Consider the amplitude in quantum mechanics for a free particle to propagate fro
 \int \mathrm{d}^3 \vec{p} ~ \ket{\vec{p}} \bra{\vec{p}} = 1 ?
 \end{equation*}
 
-\begin{align}
-& \braket{ \vec{x}^\prime | \left( \int \mathrm{d}^3 \vec{p} ~ \ket{\vec{p}} \bra{\vec{p}} \right) | \vec{x} } \nonumber\\
-&= \frac{1}{{(2 \pi)}^3} \int \mathrm{d}^3 \vec{p} ~ \braket{ \vec{x}^\prime | \vec{p} } \braket{ \vec{p} | \vec{x} } \nonumber\\
-&= \frac{1}{{(2 \pi)}^3} \int \mathrm{d}^3 \vec{p} ~ e^{ +i \vec{p} \cdot \vec{x}^\prime } e^{ -i \vec{p} \cdot \vec{x} } \nonumber\\
-&= \frac{1}{{(2 \pi)}^3} \int \mathrm{d}^3 \vec{p} ~ e^{ -i \vec{p} \cdot ( \vec{x} - \vec{x}^prime ) } \nonumber\\
-&= \delta^{(3)} ( \vec{x} - \vec{x}^\prime ) \nonumber\\
+\begin{align*}
+& \braket{ \vec{x}^\prime | \left( \int \mathrm{d}^3 \vec{p} ~ \ket{\vec{p}} \bra{\vec{p}} \right) | \vec{x} } \\
+&= \frac{1}{{(2 \pi)}^3} \int \mathrm{d}^3 \vec{p} ~ \braket{ \vec{x}^\prime | \vec{p} } \braket{ \vec{p} | \vec{x} } \\
+&= \frac{1}{{(2 \pi)}^3} \int \mathrm{d}^3 \vec{p} ~ e^{ +i \vec{p} \cdot \vec{x}^\prime } e^{ -i \vec{p} \cdot \vec{x} } \\
+&= \frac{1}{{(2 \pi)}^3} \int \mathrm{d}^3 \vec{p} ~ e^{ -i \vec{p} \cdot ( \vec{x} - \vec{x}^prime ) } \\
+&= \delta^{(3)} ( \vec{x} - \vec{x}^\prime ) \\
 &= \braket{ \vec{x}^\prime | \vec{x} }
-\end{align}
+\end{align*}
 
 \begin{equation*}
 \Rightarrow \quad \int \mathrm{d}^3 \vec{p} ~ \ket{\vec{p}} \bra{\vec{p}} = 1
@@ -128,36 +128,36 @@ Consider the amplitude in quantum mechanics for a free particle to propagate fro
 % Page 4
 
 \noindent For a free particle $[ \hat{H}, \hat{p} ] = 0 $.
-\begin{align}
-\braket{ \vec{x} | e^{ -i \hat{H} t } | \vec{x}_0 } &= \int \mathrm{d}^3 \vec{p} ~ e^{ -i {[ p^2 + m^2 ]}^\frac{1}{2} t } \underbrace{\braket{ \vec{x} | \vec{p} }}_{ \dfrac{1}{{(2 \pi)}^\frac{3}{2}} e^{ -i \vec{p} \cdot \vec{x} } } \underbrace{\braket{ \vec{p} | \vec{x}_0 }}_{ \dfrac{1}{{(2 \pi)}^\frac{3}{2}} e^{ i \vec{p} \cdot \vec{x}_0 } } \nonumber\\
-&= \int \mathrm{d}^3 \vec{p} ~ e^{ -i {[ p^2 + m^2 ]}^\frac{1}{2} t } e^{ -i \vec{p} \cdot ( \vec{x} - \vec{x}_0 ) } \nonumber\\
+\begin{align*}
+\braket{ \vec{x} | e^{ -i \hat{H} t } | \vec{x}_0 } &= \int \mathrm{d}^3 \vec{p} ~ e^{ -i {[ p^2 + m^2 ]}^\frac{1}{2} t } \underbrace{\braket{ \vec{x} | \vec{p} }}_{ \dfrac{1}{{(2 \pi)}^\frac{3}{2}} e^{ -i \vec{p} \cdot \vec{x} } } \underbrace{\braket{ \vec{p} | \vec{x}_0 }}_{ \dfrac{1}{{(2 \pi)}^\frac{3}{2}} e^{ i \vec{p} \cdot \vec{x}_0 } } \\
+&= \int \mathrm{d}^3 \vec{p} ~ e^{ -i {[ p^2 + m^2 ]}^\frac{1}{2} t } e^{ -i \vec{p} \cdot ( \vec{x} - \vec{x}_0 ) } \\
 &= \int \mathrm{d}^3 \vec{p} ~ e^{ i \lbrace -{[ p^2 + m^2 ]}^\frac{1}{2} t - \vec{p} \cdot ( \vec{x} - \vec{x}_0 ) \rbrace }
-\end{align}
+\end{align*}
 
 \noindent To make the math easy, let's assume we are in one spatial dimension, $x$, with $ x \gg t $ ( i.e., outside the light cone ) and $ x_0 = 0 $.
 Then
-\begin{align}
-\braket{ x | e^{ -i \hat{H} t } | 0 } = \int \dfrac{\mathrm{d} p}{2 \pi} ~ & \underbrace{e^{ -i {[ p^2 + m^2 ]}^\frac{1}{2} t  } e^{ -i p x }} \nonumber \\
-& \underbrace{e^{ i \left\lbrace -p - {[ p^2 + m^2 ]}^\frac{1}{2} {\left( \frac{x}{t} \right)}^{-1} \right\rbrace x }} \nonumber\\
+\begin{align*}
+\braket{ x | e^{ -i \hat{H} t } | 0 } = \int \dfrac{\mathrm{d} p}{2 \pi} ~ & \underbrace{e^{ -i {[ p^2 + m^2 ]}^\frac{1}{2} t  } e^{ -i p x }} \\
+& \underbrace{e^{ i \left\lbrace -p - {[ p^2 + m^2 ]}^\frac{1}{2} {\left( \frac{x}{t} \right)}^{-1} \right\rbrace x }} \\
 &\qquad \equiv e^{ i g(p) x } \quad \Rightarrow \quad g^\prime (p) = -1 - p {[ p^2 + m^2 ]}^{ -\frac{1}{2} } {\left( \frac{x}{t} \right)}^{-1}
-\end{align}
-\begin{align}
-g^\prime (p) &= 0 ~ \mathrm{when} \nonumber \\
--1 - p {[ p^2 + m^2 ]}^{ -\frac{1}{2} } {\left( \frac{x}{t} \right)}^{-1} &= 0 \nonumber\\
--p {[ p^2 + m^2 ]}^{ -\frac{1}{2} } &= \dfrac{x}{t} \nonumber\\
-\dfrac{p^2}{ p^2 + m^2 } &= {\left( \frac{x}{t} \right)}^2 \nonumber\\
-p^2 &= {\left( \frac{x}{t} \right)}^2 \left( p^2 + m^2 \right) \nonumber\\
-\left[ 1 - {\left( \frac{x}{t} \right)}^2 \right] p^2 &= {\left( \frac{ x m }{t} \right)}^2 \nonumber\\
+\end{align*}
+\begin{align*}
+g^\prime (p) &= 0 ~ \mathrm{when} \\
+-1 - p {[ p^2 + m^2 ]}^{ -\frac{1}{2} } {\left( \frac{x}{t} \right)}^{-1} &= 0 \\
+-p {[ p^2 + m^2 ]}^{ -\frac{1}{2} } &= \dfrac{x}{t} \\
+\dfrac{p^2}{ p^2 + m^2 } &= {\left( \frac{x}{t} \right)}^2 \\
+p^2 &= {\left( \frac{x}{t} \right)}^2 \left( p^2 + m^2 \right) \\
+\left[ 1 - {\left( \frac{x}{t} \right)}^2 \right] p^2 &= {\left( \frac{ x m }{t} \right)}^2 \\
 p &= \pm \dfrac{ \frac{ x m }{t} }{ \sqrt{ 1 - {\left( \frac{x}{t} \right)}^2 } } = \pm \dfrac{ x m }{ \sqrt{ x^2 - t^2 } } \equiv p_\mathrm{s}
-\end{align}
+\end{align*}
 
 % Page 5
 
 \noindent The Method of Stationary Phase tells us that
-\begin{align}
-I(x) &= \int_a^b e^{ i x g(p) } \mathrm{d}p \qquad \qquad x \gg 1, ~ g(p) \in \mathbb{R} ~ \mathrm{and} ~ \mathrm{smooth} \nonumber\\
+\begin{align*}
+I(x) &= \int_a^b e^{ i x g(p) } \mathrm{d}p \qquad \qquad x \gg 1, ~ g(p) \in \mathbb{R} ~ \mathrm{and} ~ \mathrm{smooth} \\
 &\simeq e^{ i x g(p_\mathrm{s}) }
-\end{align}
+\end{align*}
 
 % Page 6
 
