@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{braket}
+
+\title{The Quantum Linear Chain}
+\author{Anthony Mezzacappa}
+\date{September 3, 2020}
+
+\begin{document}
+
+\maketitle
+
+\noindent Following the usual quantization procedure
+\begin{align*}
+    q_n(t) &\longrightarrow \hat{q_n}(t) \\
+    p_n(t) &\longrightarrow \hat{p_n}(t)
+\end{align*}
+where $\hat{q_n}(t)$ and $\hat{p_n}(t)$ are now operators satisfying the commutation relation:
+\begin{align*}
+    [ \hat{q_n} (t), \hat{p_{n'}}(t)] &= i\hbar \delta_{n,n'} \\
+    [ \hat{q}_n (t), \hat{q}_{n'} (t) ] &= 0 \\
+    [ \hat{p}_n (t), \hat{p}_{n'} (t) ] &= 0 
+\end{align*}
+
+\noindent -- i.e., the Poisson brackets have been replaced by commutators.
+
+\noindent Focusing on $\hat{q_n} (t)$:
+\begin{equation*}
+    \hat{q_n} (t) = \sum_l ( \hat{a}_l (t) u_{ n, l } + \hat{a}^\dagger_l (t) u^*_{n, l} )
+\end{equation*}
+where $\hat{a}^\dagger_l$ are now operators whose meaning is to be determined.
+
+\noindent Similarly,
+\begin{equation*}
+    \hat{p}_n (t) = m \Dot{\hat{q}} (t) = i m \sum_l \omega_l \left( \hat{a}_l (t) u_{ n, l } - \hat{a}^\dagger_l u^*_{ n, l }  \right)
+\end{equation*}
+
+% Page 1a
+
+\noindent Let's invert the relationships
+\begin{align}
+    \hat{q}_n (t) &= \sum_l \left( \hat{a}_l (t) u_{ n, l } + \hat{a}^\dagger_l u^*_{ n, l } \right) \label{eq1} \\ % Equation 1
+    \hat{p}_n (t) &= i m \sum_l \omega_l \left( \hat{a}_l (t) u_{ n, l } - \hat{a}^\dagger_l u^*_{ n, l } \right) \label{eq2} % Equation 2
+\end{align}
+
+\noindent Multiply \eqref{eq1} and \eqref{eq2} by $ u^*_{ n, l' } $ and sum over $n$
+\begin{align}
+    & \sum_{ n = 1 }^N u^*_{ n, l' } \hat{q}_n (t) = \nonumber \\
+    &= \sum_l \biggl\lbrace \hat{a}_l (t) {\underbrace{ \sum_{ n = 1 }^N u^*_{ n, l' } u_{ n, l } }_{\delta_{ l l' } }} + \hat{a}^\dagger_l (t) {\underbrace{ \sum_{ n = 1 }^N u^*_{ n, l' } u^*_{ n, l } }_{ \delta_{ l, -l' } }} \biggr\rbrace \nonumber \\
+    &= \hat{a}_{l'} (t) + \hat{a}^\dagger_{-l'} (t) \label{eq3} % Equation 3
+\end{align}
+
+\begin{align}
+    & \sum_{ n = 1 }^N u^*_{ n, l' } \hat{p}_n (t) = \nonumber \\
+    &= i m \sum_l \omega_l \biggl\lbrace \hat{a}_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u_{ n, l } - \hat{a}^\dagger_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u^*_{ n, l } \biggr\rbrace \nonumber \\
+    &= i m \omega_l \left[ \hat{a}_{l'} (t) - \hat{a}^\dagger_{-l'} (t)  \right] \label{eq4} % Equation 4
+\end{align}
+
+% Page 1b
+
+% Page 2
+
+\end{document}
