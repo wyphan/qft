@@ -9,6 +9,7 @@ This work is licensed under a
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
 List of contributors:
+- Professor Anthony Mezzacappa
 - Wileam Phan
 - Shikha Bangar
 
