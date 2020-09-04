@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{mathrsfs}
 \usepackage{braket}
+\usepackage{fullpage}
 
 \title{The Quantum Linear Chain}
 \author{Anthony Mezzacappa}
@@ -47,19 +48,57 @@ where $\hat{a}^\dagger_l$ are now operators whose meaning is to be determined.
 
 \noindent Multiply \eqref{eq1} and \eqref{eq2} by $ u^*_{ n, l' } $ and sum over $n$
 \begin{align}
-    & \sum_{ n = 1 }^N u^*_{ n, l' } \hat{q}_n (t) = \nonumber \\
-    &= \sum_l \biggl\lbrace \hat{a}_l (t) {\underbrace{ \sum_{ n = 1 }^N u^*_{ n, l' } u_{ n, l } }_{\delta_{ l l' } }} + \hat{a}^\dagger_l (t) {\underbrace{ \sum_{ n = 1 }^N u^*_{ n, l' } u^*_{ n, l } }_{ \delta_{ l, -l' } }} \biggr\rbrace \nonumber \\
+    \sum_{ n = 1 }^N u^*_{ n, l' } \hat{q}_n (t) &= \sum_l \biggl\lbrace \hat{a}_l (t) {\underbrace{ \sum_{ n = 1 }^N u^*_{ n, l' } u_{ n, l } }_{\delta_{ l l' } }} + \hat{a}^\dagger_l (t) {\underbrace{ \sum_{ n = 1 }^N u^*_{ n, l' } u^*_{ n, l } }_{ \delta_{ l, -l' } }} \biggr\rbrace \nonumber \\
     &= \hat{a}_{l'} (t) + \hat{a}^\dagger_{-l'} (t) \label{eq3} % Equation 3
 \end{align}
 
 \begin{align}
-    & \sum_{ n = 1 }^N u^*_{ n, l' } \hat{p}_n (t) = \nonumber \\
-    &= i m \sum_l \omega_l \biggl\lbrace \hat{a}_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u_{ n, l } - \hat{a}^\dagger_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u^*_{ n, l } \biggr\rbrace \nonumber \\
+    \sum_{ n = 1 }^N u^*_{ n, l' } \hat{p}_n (t) &= i m \sum_l \omega_l \biggl\lbrace \hat{a}_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u_{ n, l } - \hat{a}^\dagger_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u^*_{ n, l } \biggr\rbrace \nonumber \\
     &= i m \omega_l \left[ \hat{a}_{l'} (t) - \hat{a}^\dagger_{-l'} (t)  \right] \label{eq4} % Equation 4
 \end{align}
 
 % Page 1b
+Then from \eqref{eq3} and \eqref{eq4} 
+\begin{equation}
+    \hat{a}_{l'} (t) + \hat{a}^\dagger_{-l'} (t) = \sum_{n = 1}^N u^*_{n, l'} \hat{q}_n(t) \label{eq5}
+\end{equation} 
+\begin{equation}
+    \hat{a}_{l'} (t) - \hat{a}^\dagger_{-l'} (t) = \sum_{n = 1}^N \frac{1}{im\omega} u^*_{n, l'} \hat{p}_n(t) \label{eq6}
+\end{equation} 
+
+Adding \eqref{eq5} and \eqref{eq6},
+\begin{equation}
+    \hat{a}_{l'} (t) = \frac{1}{2} \sum_{n = 1}^N u^*_{n, l'} \left [ \hat{q}_n(t) + \frac{1}{im\omega}  \hat{p}_n(t) \right ]
+\end{equation}
+
+Since
+\begin{equation*}
+    \hat{q}_n (t) = [\hat{q}_n (t)]^\dagger
+\end{equation*}
+\begin{equation*}
+        \hat{p}_n (t) = [\hat{p}_n (t)]^\dagger
+\end{equation*}
+
+We have,
+\begin{equation*}
+    \hat{a}^\dagger_{-l'} (t) = \frac{1}{2} \sum_{n = 1}^N u_{n, l'} \left [ \hat{q}_n(t) - \frac{1}{im\omega}  \hat{p}_n(t) \right ]
+\end{equation*}
 
 % Page 2
+The relationship we learned between $a_l (t)$ and $(q_n (t), p_n (t))$ now becomes ****** relation: 
+\begin{equation*}
+    \hat{a}_l (t) = \frac{1}{2} \sum_{n = 1}^N u^*_{n, l} \left [ \hat{q}_n(t) + \frac{1}{im\omega}  \hat{p}_n(t) \right ]
+\end{equation*}
+
+We can use this to determine the commutator associated with the operator $\hat{a}(t)$:
+\begin{eqnarray*}
+       \left [ \hat{a}_l (t), \hat{a}^\dagger _{l'}(t) \right ] &=&   \frac{1}{4} \sum_n \sum_{n'} u^* _{n,l} u_{n',l'} \left \{  \left[ \hat{q}_n(t) + \frac{i}{m\omega_l}\hat{p}_n (t) \right] \left[ \hat{q}_{n'}(t) - \frac{i}{m\omega_{l'}}\hat{p}_{n'}(t) \right] \right. \\
+       && \left. - \left[ \hat{q}_{n'}(t) - \frac{i}{m\omega_{l}}\hat{p}_{n'}(t) \right]\left[ \hat{q}_n(t) + \frac{i}{m\omega_l}\hat{p}_n (t) \right] \right \} \\
+       &=& \frac{1}{4} \sum_n \sum_{n'}u^* _{n,l} u_{n',l'} \left \{ \hat{q}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'} (t) \hat{q}_n (t)  - \frac{i}{m\omega_l} \left( \hat{q}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{q}_n (t) \right) \right. \\
+       && \left. + \frac{i}{m\omega_l} \left( \hat{p}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'}(t) \hat{p}_n (t) \right)  -\left(\frac{i}{m\omega_l}\right)^2 \left( \hat{p}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{p}_n (t) \right) \right \}
+\end{eqnarray*}
+
+
+
 
 \end{document}
