@@ -9,8 +9,8 @@ This work is licensed under a
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
 List of contributors:
-- @tonymezz Professor Anthony Mezzacappa
-- @wyphan Wileam Phan
+- [@tonymezz](https://github.com/tonymezz) Professor Anthony Mezzacappa
+- [@wyphan](https://github.com/wyphan) Wileam Phan
 - Shikha Bangar (via Overleaf)
 
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
