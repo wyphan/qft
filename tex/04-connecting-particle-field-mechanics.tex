@@ -9,8 +9,34 @@
 \date{September 1 and 3, 2020}
 
 \begin{document}
-
+\setlength{\parskip}{1em}
 \maketitle
+\noindent
+Consider we have a classical linear chain of equal masses connected by spring of equal spring constant. The springs can oscillate about there equilibrium position in one dimension. In equilibrium all masses are separated by an equal length. \par
+
+$\kappa$ = value of the spring constant \par
+a = length between the masses in equilibrium\par
+m = mass of each of the sampled masses\par
+% Insert image for spring mass system...!!!!
+
+
+\noindent Define \par
+\noindent $q_n(t) $= displacement of each oscillator from its equilibrium position \bar q_n \equiv na  i.e., x_n(t) = na+q_n(t) \par
+\noindent For simplicity, we will assume periodicity i.e., q_1(t) =q_{N+1}(t) \par
+\noindent In the limit N \rightarrow $\infty$, this will not matter. \par
+\noindent The Lagrangian of this system is
+\begin{equation}
+    L = T - V  = \frac{1}{2} m \sum_{n=1}^N \dot{q_n^2} - \frac{1}{2} \kappa \sum_{n=1}^N (q_{n+1} - q_n)^2
+\end{equation}
+\noindent The Euler-Lagrangian EOM for each mass are
+\begin{equation}
+    \dfrac{ \partial L }{ \partial q_n} -  \dfrac{d}{ \mathrm{d} t} \left[\dfrac{ \partial L }{ \partial \dot {q_n}} \right] = 0
+\end{equation}
+
+\dfrac{ \partial L }{ \partial q_n} :
+
+
+
 
 
 

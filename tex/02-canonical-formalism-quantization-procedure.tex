@@ -12,4 +12,289 @@
 
 \maketitle
 
+\noindent Consider the one-dimensional motion of a single particle in a conservative force field. Let $q$ be the generalized coordinate of the particle. Then
+\begin{equation*}
+    \dot{q} \equiv \dfrac{ \mathrm{d}q }{ \mathrm{d} t}
+\end{equation*}
+is the generalized velocity of the particle. Let $ L (q, \dot{q}) $ be the Lagrangian.
+
+\vspace{12pt}
+\noindent \underline{Hamilton's Principle}
+
+\noindent The physical path $ q (t) $ that the particle takes in going from $ q (t_1) \equiv q_1 $ to $ q (t_2) \equiv q_2 $ is that along which the \underline{Action}, $S$, is stationary.
+
+\noindent The action is defined by
+\begin{equation*}
+    S = \int_{t_1}^{t_2} L (q, \dot{q}) ~\mathrm{d}t
+\end{equation*}
+
+\noindent Along the physical path, small \underline{variations} in the path
+\begin{equation*}
+    q (t) \longrightarrow q (t) + \delta q (t)
+\end{equation*}
+leading to a variation of the action, $ \delta S $, leave the action unchanged to first order in the variation, $ \delta q (t) $, -- i.e.,
+\begin{equation*}
+    \delta S = 0
+\end{equation*}
+
+% Page 2
+
+\noindent Let's compute $ \delta S $:
+
+\begin{align*}
+    \delta S &= \delta \int_{t_1}^{t_2} L (q, \dot{q}) ~\mathrm{d}t \\
+    &= \int_{t_1}^{t_2} \left[ \dfrac{ \partial L }{ \partial q } \delta q + \dfrac{ \partial L }{ \partial \dot{q} } \delta ( \dot{q} ) \right] ~\mathrm{d}t \\
+    &= \int_{t_1}^{t_2} \left[ \dfrac{ \partial L }{ \partial q } \delta q + \dfrac{ \partial L }{ \partial \dot{q} } \dfrac{ \mathrm{d} }{ \mathrm{d} t } ( \delta q ) \right] ~\mathrm{d}t \\
+    &= \int_{t_1}^{t_2} \left[ \dfrac{ \partial L }{ \partial q } \delta q + \dfrac{ \mathrm{d} }{ \mathrm{d} t } \left( \dfrac{ \partial L }{ \partial \dot{q} } \delta q  ) \right) - \dfrac{ \mathrm{d} }{ \mathrm{d} t } \left( \dfrac{ \partial L }{ \partial \dot{q} } \right) \delta q \right] ~\mathrm{d}t \\
+    &= \int_{t_1}^{t_2} \left[ \dfrac{ \partial L }{ \partial q } - \dfrac{ \mathrm{d} }{ \mathrm{d} t } \left( \dfrac{ \partial L }{ \partial \dot{q} } \right) \right] \delta q ~\mathrm{d}t
+\end{align*}
+
+\noindent The last equality arises because
+\begin{equation*}
+    \int_{t_1}^{t_2} \dfrac{ \mathrm{d} }{ \mathrm{d} t } \left( \dfrac{ \partial L }{ \partial \dot{q} } \delta q \right) ~\mathrm{d}t = \left. \dfrac{ \partial L }{ \partial \dot{q} } \delta q \right|_{t_2} - \left. \dfrac{ \partial L }{ \partial \dot{q} } \delta q \right|_{t_1} = 0
+\end{equation*}
+since $ \delta q (t_1) $ and $ \delta q (t_2) $ are by definition 0 given the definite starting point, $ q (t_1) \equiv q_1 $, and ending point, $ q (t_2) \equiv q_2 $.
+
+% Page 2a
+
+\noindent\rule{\textwidth}{.5pt}
+
+\noindent Given a functional
+\begin{equation*}
+    F = F \left( x, y(x), y'(x) \right)
+\end{equation*}
+consider the variation
+\begin{equation*}
+    y(x) \longrightarrow y(x) + \epsilon \eta (x)
+\end{equation*}
+where $ \epsilon \ll 1 $.
+\begin{equation*}
+    \delta y(x) \equiv \epsilon \eta (x)
+\end{equation*}
+
+\noindent Then, at a \underline{fixed} x,
+\begin{equation*}
+    \delta F = F \left( x, y(x) + \epsilon \eta (x), y'(x) + \epsilon \eta' (x) \right) - F \left( x, y(x), y'(x) \right)
+\end{equation*}
+
+\noindent Expand in $\underline{\underline{\epsilon}}$:
+
+\begin{equation*}
+    \delta F = \dfrac{ \partial F }{ \partial y } \epsilon \eta + \dfrac{ \partial F }{ \partial y' } \epsilon \eta'
+\end{equation*}
+
+\noindent For
+\begin{align*}
+    F = y &\Longrightarrow \delta y = \epsilon \eta \\
+    F = y' &\Longrightarrow \delta y' = \epsilon \eta' = {\left( \delta y \right)}'
+\end{align*}
+$\delta$ and $\tfrac{\mathrm{d}}{ \mathrm{d} x }$ commute!
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Page 3
+
+\begin{equation*}
+    \begin{split}
+        \int_{t_1}^{t_2} \left[ \quad \right] \delta q ~\mathrm{d}t &= {\left[ \quad \right]}_{t_i} \delta q (t_i) \Delta t + {\left[ \quad \right]}_{t_{i+1}} \delta q (t_{i+1}) \Delta t \\
+        &\quad + \dots = 0 \quad \Longrightarrow \quad \mathrm{all}~ {\left[ \quad \right]}_{t_i} = 0
+    \end{split}
+\end{equation*}
+
+\noindent Since the variation $ \delta q (t) $ of the function $q(t)$ is arbitrary, the physical path (for which $\delta S = 0$) is given by the solution of the Euler-Lagrange EOM
+\begin{equation*}
+    \dfrac{ \partial L }{ \partial q } - \dfrac{\mathrm{d}}{ \mathrm{d} t } \left( \dfrac{ \partial L }{ \partial \dot{q} } \right) = 0
+\end{equation*}
+
+\noindent The momentum conjugate to $q$ is defined by
+\begin{equation*}
+    p \equiv \dfrac{ \partial L }{ \partial \dot{q} }
+\end{equation*}
+
+\noindent The Hamiltonian, which is a function of $(q, p)$ rather than $(q, \dot{q})$, is defined by
+\begin{equation*}
+    H \equiv p \dot{q} - L
+\end{equation*}
+
+\noindent The EOM are (using the \underline{Poisson brackets})
+\begin{align*}
+    \dot{q} &= - \left\lbrace H, q \right\rbrace = - \left( \dfrac{ \partial H }{ \partial q } \dfrac{ \partial q }{ \partial p } - \dfrac{ \partial H }{ \partial p } \dfrac{ \partial q }{ \partial q } \right) = \dfrac{ \partial H }{ \partial p } \\
+    \dot{p} &= - \left\lbrace H, p \right\rbrace = - \left( \dfrac{ \partial H }{ \partial q } \dfrac{ \partial p }{ \partial p } - \dfrac{ \partial H }{ \partial p } \dfrac{ \partial p }{ \partial q } \right) = \dfrac{ \partial H }{ \partial q }
+\end{align*}
+
+\noindent To quantize the system, $q$ and $p$ become Hermitian operators
+\begin{align*}
+    q &\longrightarrow \hat{q} \quad \mathrm{whose} ~ \mathrm{action} ~ \mathrm{on} ~ \psi (q, t) ~ \mathrm{is} ~ \mathrm{multiplication} ~ \mathrm{by} ~ q \\
+    p &\longrightarrow \hat{p} \equiv -i \frac{\partial}{ \partial q }
+\end{align*}
+and the Hamiltonian becomes a Hermitian operator. The Schr\"{o}dinger Equation is
+\begin{equation*}
+    \hat{H} \psi (q, t) = i \dfrac{ \partial \psi (q, t) }{ \partial t }
+\end{equation*}
+% Note: I decided not to break the paragraph, so I added the continuation part from Page 4 here, before moving on to page 3a. -WYP
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Page 3a
+
+\noindent Considering the Hamiltonian as a function of $(q, p)$, not explicitly $t$, we have
+\begin{equation}
+    \mathrm{d} H (p, q) = \dfrac{ \partial H }{ \partial p } \mathrm{d} p + \dfrac{ \partial H }{ \partial q } \mathrm{d} q \label{l2eq1} % Equation 1
+\end{equation}
+
+\noindent Considering the definition of the Hamiltonian
+\begin{equation}
+    H (p, q) \equiv p \dot{q} - L (q, \dot{q}) % Equation 2
+\end{equation}
+\begin{equation}
+    \mathrm{d} H = p \,\mathrm{d} \dot{q} + \dot{q} \,\mathrm{d} p - \dfrac{ \partial L }{ \partial q } \mathrm{d} q - \dfrac{ \partial L }{ \partial \dot{q} } \mathrm{d} \dot{q} \label{l2eq3} % Equation 3
+\end{equation}
+where we have assumed that $L$ is not an explicit function of time (this would break Lorentz invariance of the Lagrangian, which is a scalar quantity, when we build our relativistic QFT).
+
+\noindent From the Euler-Lagrange EOM
+\begin{equation}
+    \dfrac{ \partial L }{ \partial q } - \dfrac{\mathrm{d}}{ \mathrm{d} t } \left( \dfrac{ \partial L }{ \partial \dot{q} } \right) = 0 % Equation 4
+\end{equation}
+
+\noindent But
+\begin{equation}
+    p \equiv \dfrac{ \partial L }{ \partial \dot{q} } \label{l2eq5} % Equation 5
+\end{equation}
+
+\noindent The Euler-Lagrange EOM then tell us
+\begin{equation}
+    \dfrac{\mathrm{d}}{ \mathrm{d} t } (p) = \dot{p} = \dfrac{ \partial L }{ \partial q } \label{l2eq6} % Equation 6
+\end{equation}
+
+% Page 3b
+
+\noindent Then, insertion of \eqref{l2eq5} and \eqref{l2eq6} in \eqref{l2eq3} gives
+\begin{align*}
+    \mathrm{d} H \equiv &= \left( p - \dfrac{ \partial L }{ \partial \dot{q} } \right) \mathrm{d} \dot{q} + \dot{q} \,\mathrm{d} p - \dfrac{ \partial L }{ \partial q } \mathrm{d} q \qquad \longleftarrow ~ \mathrm{just} ~ \mathrm{a} ~ \mathrm{rewrite} ~ \mathrm{of} ~ \eqref{l2eq3} \\
+    &= \dot{q} \mathrm{d} p - \dot{p} \mathrm{d} q
+\end{align*}
+
+\noindent But, from \eqref{l2eq1}, equating coefficients
+\begin{align*}
+    \dot{q} &= ~ \dfrac{ \partial H }{ \partial p } \\
+    \dot{p} &= - \dfrac{ \partial H }{ \partial q }
+\end{align*}
+
+\noindent These are Hamilton's EOM, which can be expressed in terms of the so-called Poisson Brackets as
+\begin{align*}
+    \dot{q} &= - \left\lbrace H, q \right\rbrace = - \left( \dfrac{ \partial H }{ \partial q } \dfrac{ \partial q }{ \partial p } - \dfrac{ \partial H }{ \partial p } \dfrac{ \partial q }{ \partial q } \right) = \dfrac{ \partial H }{ \partial p } \\
+    \dot{p} &= - \left\lbrace H, p \right\rbrace = - \left( \dfrac{ \partial H }{ \partial q } \dfrac{ \partial p }{ \partial p } - \dfrac{ \partial H }{ \partial p } \dfrac{ \partial p }{ \partial q } \right) = \dfrac{ \partial H }{ \partial q }
+\end{align*}
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Page 4 (after the broken paragraph)
+
+\noindent In the Heisenberg Representation, it's the operators that depend on time, not the states.
+\begin{equation*}
+    \psi_\mathrm{S} (q, t) = e^{ - i \hat{H} t } \psi_\mathrm{S} (q, 0) \equiv e^{ - i \hat{H} t } \psi_\mathrm{H}
+\end{equation*}
+
+\noindent The time-independent operators in the Schr\"{o}dinger picture are replaced in the Heisenberg picture by
+\begin{equation*}
+    \hat{O}_\mathrm{H} (t) = e^{ i \hat{H} t } \, \hat{O}_\mathrm{S} \, e^{ - i \hat{H} t }
+\end{equation*}
+and the time development of the operators is given by
+\begin{equation*}
+    \dfrac{ \mathrm{d} \hat{O}_\mathrm{H} }{ \mathrm{d} t } = i [ \hat{H}, \hat{O}_\mathrm{H} ]
+\end{equation*}
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Page 4a
+
+\noindent Consider the time derivative of the expectation value of the operator, $\hat{O}_\mathrm{S}$, in the Schr\"{o}dinger picture in the state $\ket{ \psi_\mathrm{S} }$:
+\begin{equation} \label{l2eq7}
+    \dfrac{\mathrm{d}}{ \mathrm{d} t } \braket{ \psi_\mathrm{S} | \hat{O}_\mathrm{S} | \psi_\mathrm{S} }
+\end{equation} % originally Equation 1
+Here the state $\ket{ \psi_\mathrm{S} }$ is time-dependent but the operator $\hat{O}_\mathrm{S}$ is not.
+
+\noindent We can re-express the matrix element in terms of $\ket{ \psi_\mathrm{H} }$ and $\hat{O}_\mathrm{H}$ as
+\begin{equation} \label{l2eq8}
+    \dfrac{\mathrm{d}}{ \mathrm{d} t } \braket{ \psi_\mathrm{H} | e^{ i \hat{H} t } \hat{O}_\mathrm{S} e^{ -i \hat{H} t } | \psi_\mathrm{H} }
+\end{equation} % originally Equation 2
+
+\noindent Now \underline{all} of the time dependence sits in the exponentials $e^{ \pm i \hat{H} t }$.
+
+\noindent Taking the derivative
+\begin{align}
+    & \braket{ \psi_\mathrm{H} | \left( i \hat{H} e^{ i \hat{H} t } \hat{O}_\mathrm{S} e^{ -i \hat{H} t } - i e^{ i \hat{H} t } \hat{O}_\mathrm{S} \hat{H} e^{ -i \hat{H} t } \right) | \psi_\mathrm{H} } \nonumber\\
+    &= \braket{ \psi_\mathrm{H} | i \left( \hat{H} e^{ i \hat{H} t } \hat{O}_\mathrm{S} e^{ -i \hat{H} t } - e^{ i \hat{H} t } \hat{O}_\mathrm{S} e^{ -i \hat{H} t } \hat{H} \right) | \psi_\mathrm{H} } \nonumber\\
+    &= \braket{ \psi_\mathrm{H} | i \left( \hat{H} \hat{O}_\mathrm{H} - \hat{O}_\mathrm{H} \hat{H} \right) | \psi_\mathrm{H} } \nonumber\\
+    &= \braket{ \psi_\mathrm{H} | i [ \hat{H}, \hat{O}_\mathrm{H} ] | \psi_\mathrm{H} } \label{l2eq9}
+\end{align} % originally Equation 3
+
+% Page 4b
+
+Then, from \eqref{l2eq8} and \eqref{l2eq9}
+\begin{align*}
+     & \dfrac{\mathrm{d}}{ \mathrm{d} t } \braket{ \psi_\mathrm{H} | \hat{O}_\mathrm{H} | \psi_\mathrm{H} } \\
+     &= \braket{ \psi_\mathrm{H} | \dfrac{\mathrm{d}}{ \mathrm{d} t } \hat{O}_\mathrm{H} | \psi_\mathrm{H} } \\
+     &= \braket{ \psi_\mathrm{H} | i [ \hat{H}, \hat{O}_\mathrm{H} ] | \psi_\mathrm{H} }
+\end{align*}
+
+\noindent We arrive at the operator relation
+\begin{equation*}
+    \dfrac{ \mathrm{d} \hat{O}_\mathrm{H} }{ \mathrm{d} t } = i [ \hat{H}, \hat{O}_\mathrm{H} ]
+\end{equation*}
+which is the Heisenberg EOM for the time-dependent operator $\hat{O}_\mathrm{H}$.
+
+\noindent\rule{\textwidth}{.5pt}
+
+\noindent Let's look at $ \hat{O}_\mathrm{H} = \hat{p} (t)$. Using an arbitrary function, $ f (p, q) $, as a placeholder,
+\begin{align*}
+    \dfrac{ \mathrm{d} \hat{p} (t) }{ \mathrm{d} t } f &= i [ \hat{H}, \hat{p} ] f \\
+    &= i \left[ \hat{H} \left( -i \dfrac{\partial}{ \partial q } \right) - \left( -i \dfrac{\partial}{ \partial q } \right) \hat{H} \right] f \\
+    &= \hat{H} \left( \dfrac{ \partial f }{ \partial q } \right) - \dfrac{\partial}{ \partial q } \left( \hat{H} f \right) \\
+    &= \hat{H} \left( \dfrac{ \partial f }{ \partial q } \right) - \dfrac{ \partial \hat{H} }{ \partial q } \left( f \right) - \hat{H} \dfrac{ \partial f }{ \partial q } \\
+    &= - \dfrac{ \partial \hat{H} }{ \partial q } \left( f \right)
+\end{align*}
+
+% Page 5
+
+\noindent Then
+\begin{equation*}
+    \dfrac{ \mathrm{d} \hat{p} (t) }{ \mathrm{d} t } = - \dfrac{ \partial \hat{H} }{ \partial q }
+\end{equation*}
+
+\noindent Now let's look at $ \hat{O}_\mathrm{H} = \hat{q} (t)$.
+\begin{align*}
+    \dfrac{ \mathrm{d} \hat{q} (t) }{ \mathrm{d} t } f &= i [ \hat{H}, \hat{q} ] f \\
+    &= i \left[ \hat{H} \left( i \dfrac{\partial}{ \partial p } \right) - \left( i \dfrac{\partial}{ \partial p } \right) \hat{H} \right] f \\
+    &= - \hat{H} \left( \dfrac{ \partial f }{ \partial p } \right) + \dfrac{\partial}{ \partial p } \left( \hat{H} f \right) \\
+    &= - \hat{H} \left( \dfrac{ \partial f }{ \partial p } \right) + \dfrac{ \partial \hat{H} }{ \partial p } \left( f \right) + \hat{H} \dfrac{ \partial f }{ \partial p } \\
+    &= \dfrac{ \partial \hat{H} }{ \partial p } \left( f \right)
+\end{align*}
+
+\noindent Then
+\begin{equation*}
+    \dfrac{ \mathrm{d} \hat{q} (t) }{ \mathrm{d} t } = \dfrac{ \partial \hat{H} }{ \partial p }
+\end{equation*}
+
+\noindent But these are just the \underline{classical equations of motion}.
+
+\noindent $\Longrightarrow$ \quad In the Heisenberg representation, the relevant operators evolve according to the classical EOM.
+
+\noindent This is very important in QFT and motivates the approach we will take to build our theories:
+\begin{enumerate}
+    \item CONSTRUCT LAGRANGIANS FOR CLASSICAL FIELDS
+    \item DERIVE THE EOM FOR THOSE FIELDS
+    \item FIND THE CLASSICAL SOLUTIONS TO THESE EOM
+    \item QUANTIZE THESE CLASSICAL FIELD SOLUTIONS
+    \begin{itemize}
+        \item[-] ELEVATE THEM TO OPERATOR STATUS
+        \begin{itemize}
+            \item[-] INTRODUCE CREATION AND ANNIHILATION OPERATORS
+            \begin{itemize}
+                \item[-] MAKE THE CONNECTION TO PARTICLES
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
 \end{document}
