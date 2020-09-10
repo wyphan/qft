@@ -50,7 +50,44 @@ $m$ = mass of each of the sampled masses\par
     \dfrac{ \partial L }{ \partial q_n} -  \dfrac{d}{ \mathrm{d} t} \left[\dfrac{ \partial L }{ \partial \dot {q}_n } \right] = 0
 \end{equation}
 
-$\dfrac{ \partial L }{ \partial q_n}$ :
+$\dfrac{ \partial L }{ \partial q_n}$ :\\
+
+-$\frac{1}{2}$ $\kappa \sum_{n=1}^N (q_{n+1} - q_n)^2$\\
+
+= -$\frac{1}{2}$ $\kappa \left[(q_{2} - q_1)^2) + (q_{3} - q_2)^2 + (q_{4} - q_3)^2 +....+ (q_{n} - q_{n-1})^2 + (q_{n+1} - q_n)^2 + ... \right]$
+
+Then\\
+
+\vspace{3mm}
+$\dfrac{ \partial L }{ \partial q_n}$ = -$\frac{1}{2}$ $\kappa \left[2 (q_{n} - q_{n-1}) + 2 (q_{n+1} - q_n)(-1)  \right]$ = - $\kappa \left[2 q_{n} - q_{n-1} - q_{n+1}  \right]$\\
+
+$\dfrac{ \partial L }{ \partial \dot q_n}$ = $m\dot{q}_n$\\
+
+Then the Euler Lagrange EOM read\\
+
+$\kappa \left[q_{n+1} -2 q_{n} + q_{n-1}  \right]$ - m $\" {q}_n$ = 0\\
+
+We can compute the canonically conjugate momentum $p_n$,\\
+\begin{equation}
+\centering
+  p_n =  \dfrac{ \partial L }{ \partial \dot q_n}  = m\dot{q}_n                                    
+\end{equation}
+
+
+The Hamiltonian now follows\\
+\begin{equation}
+\centering
+H = \sum_{n=1}^N p_n \dot{q}_n - \dot L  
+\end{equation}
+
+= $\sum_{n=1}^N p_n \frac{p_n}{m} - \left[\frac{1}{2} m \sum_{n=1}^N ( \frac{p_n}{m} )^2 - \frac{1}{2} \kappa \sum_{n=1}^N (q_{n+1} - q_n)^2 \righ] $ \\
+
+
+
+
+
+
+
 
 
 
