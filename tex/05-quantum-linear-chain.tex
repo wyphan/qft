@@ -95,11 +95,44 @@ We can use this to determine the commutator associated with the operator $\hat{a
        \left [ \hat{a}_l (t), \hat{a}^\dagger _{l'}(t) \right ] &=&   \frac{1}{4} \sum_n \sum_{n'} u^* _{n,l} u_{n',l'} \left \{  \left[ \hat{q}_n(t) + \frac{i}{m\omega_l}\hat{p}_n (t) \right] \left[ \hat{q}_{n'}(t) - \frac{i}{m\omega_{l'}}\hat{p}_{n'}(t) \right] \right. \\
        && \left. - \left[ \hat{q}_{n'}(t) - \frac{i}{m\omega_{l}}\hat{p}_{n'}(t) \right]\left[ \hat{q}_n(t) + \frac{i}{m\omega_l}\hat{p}_n (t) \right] \right \} \\
        &=& \frac{1}{4} \sum_n \sum_{n'}u^* _{n,l} u_{n',l'} \left \{ \hat{q}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'} (t) \hat{q}_n (t)  - \frac{i}{m\omega_l} \left( \hat{q}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{q}_n (t) \right) \right. \\
-       && \left. + \frac{i}{m\omega_l} \left( \hat{p}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'}(t) \hat{p}_n (t) \right)  -\left(\frac{i}{m\omega_l}\right)^2 \left( \hat{p}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{p}_n (t) \right) \right \}
-       &=& \frac{1}{4} \sum_n \sum_{n'}u^* _{n,l} u_{n',l'} \left{
+       && \left. + \frac{i}{m\omega_l} \left( \hat{p}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'}(t) \hat{p}_n (t) \right)  -\left(\frac{i}{m\omega_l}\right)^2 \left( \hat{p}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{p}_n (t) \right) \right \} \\
+       &=& \frac{1}{4} \sum_n \sum_{n'}u^* _{n,l} u_{n',l'} \left \{ -\frac{i}{m \omega_l} i \delta_{nn'} + \frac{i}{m\omega_l} (-i \delta_{nn'})\right \} \\ 
+       &=& \frac{1}{2} \frac{1}{m \omega_l} \sum_{n}u^* _{n,l} u_{n',l'} \\ 
+       &=& \frac{1}{2m\omega_l} \delta_{ll'}
 \end{eqnarray*}
 
+\begin{equation*}
+    \left[ \sqrt{2m\omega_l} \hat{a}_l (t), \sqrt{2m\omega_{l'}} \hat{a}^\dagger _{l'}(t) \right ] = \delta{ll'}
+\end{equation*}
 
+Define, 
+\begin{equation*}
+    \hat{b}_l (t) \equiv \sqrt{2m\omega_l} \hat{a}_l (t)
+\end{equation*}
 
+\newpage
+Then,
+\begin{eqnarray*}
+     \left[ \hat{b}_l (t), \hat{b}^\dagger _{l'}(t) \right ] &=& \delta_{ll'} \\
+      \hat{b}(t) \hat{b}^\dagger(t) -  \hat{b}^\dagger (t) \hat{b}(t) &=& 1  
+\end{eqnarray*}
 
+Let's now guess the Hamiltonian in terms of $\hat{b}_l (t)$:
+\begin{eqnarray*}
+    H &=& \sum_l m \omega _l ^2 \left [ \hat{a}_l ^\dagger (t) \hat{a}_l (t) + \hat{a}_l (t) \hat{a}_l ^\dagger (t)  \right ] \\
+    &=& \sum_l m \omega _l ^2 \frac{1}{2m\omega_l} \left [ \hat{b}_l ^\dagger (t) \hat{b}_l (t) + \hat{b}_l (t) \hat{b}_l ^\dagger (t)  \right ] \\ 
+    &=& \frac{1}{2} \sum_l \omega_l \left [ 2\hat{b}_l ^\dagger (t) \hat{b}_l (t) + 1 \right] \\
+    &=& \sum_l \omega_l  \left [ \hat{b}_l ^\dagger (t) \hat{b}_l (t) + \frac{1}{2} \right] 
+\end{eqnarray*}
+
+Using the creation and annihilation operator for each mode $\hat{b}_l ^\dagger$ and $\hat{b}_l$, we can create the multiparticle state
+\begin{equation*}
+    | n_1, n_2, n_3, .... > = \Pi_l |n_l> 
+\end{equation*}
+where, 
+\begin{eqnarray*}
+    |n_l> &=& \frac{1}{\sqrt{n!}} \left( \hat{b} _l ^\dagger \right)^{n_l} |0_l>  \\
+    <n_l|n_l> &=& 1
+\end{eqnarray*}
+The state $|0_l>$ is the vacuum state for the mode $l$. 
 \end{document}

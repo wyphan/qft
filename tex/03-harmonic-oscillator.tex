@@ -12,187 +12,221 @@
 
 \maketitle
 
-\begin{align}
-H &= \frac{p^2}{2m} + \frac{1}{2} m \omega^2 x^2 \nonumber\\
+\begin{align*}
+H &= \frac{p^2}{2m} + \frac{1}{2} m \omega^2 x^2 \\
   &= \frac{1}{2m} \left[ p^2 + {\left( m \omega x \right)}^2 \right]
-\end{align}
+\end{align*}
 
 \noindent This has the form $u^2 + v^2$, which can be written as
-\begin{equation}
+\begin{equation*}
 u^2 + v^2 = ( i u + v ) ( -i u + v )
-\end{equation}
+\end{equation*}
 
 \noindent Classically, we are dealing with functions. Quantum mechanically we are dealing with operators, so we have to be careful about ordering.
 
 \noindent The Hamiltonian operator is
-\begin{equation}
+\begin{equation*}
 \hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2
-\end{equation}
+\end{equation*}
 
 \noindent Define the operators
-\begin{align}
+\begin{align*}
 \hat{a} &\equiv \dfrac{1}{\sqrt{2 m \omega}} ( m \omega \hat{x} + i \hat{p} ) \\
 \hat{a}^\dagger &\equiv \dfrac{1}{\sqrt{2 m \omega}} ( m \omega \hat{x} - i \hat{p} )
-\end{align}
+\end{align*}
 
 % Page 2
 
 \noindent Now consider the product
-\begin{equation}
-\begin{aligned}
+\begin{align*}
 \hat{a}^\dagger \hat{a} &= \dfrac{1}{\sqrt{2 m \omega}} ( m \omega \hat{x} - i \hat{p} ) ( m \omega \hat{x} + i \hat{p} ) \\
 &= \dfrac{1}{\sqrt{2 m \omega}} \left\lbrace m^2 \omega^2 \hat{x}^2 + i m \omega [ \hat{x}, \hat{p} ] + \hat{p}^2 \right\rbrace
-\end{aligned}
-\end{equation}
+\end{align*}
 and the product
-\begin{align}
-\hat{a} \hat{a}^\dagger &= \dfrac{1}{\sqrt{2 m \omega}} ( m \omega \hat{x} - i \hat{p} ) ( m \omega \hat{x} + i \hat{p} ) \nonumber\\
+\begin{align*}
+\hat{a} \hat{a}^\dagger &= \dfrac{1}{\sqrt{2 m \omega}} ( m \omega \hat{x} - i \hat{p} ) ( m \omega \hat{x} + i \hat{p} ) \\
 &= \dfrac{1}{\sqrt{2 m \omega}} \left\lbrace m^2 \omega^2 \hat{x}^2 - i m \omega [ \hat{x}, \hat{p} ] + \hat{p}^2 \right\rbrace
-\end{align}
+\end{align*}
 
 \noindent The sum
-\begin{align}
-\hat{a}^\dagger \hat{a} + \hat{a} \hat{a}^\dagger &= m \omega^2 \hat{x}^2 + \frac{\hat{p}^2}{ m \omega } \nonumber\\
+\begin{align*}
+\hat{a}^\dagger \hat{a} + \hat{a} \hat{a}^\dagger &= m \omega^2 \hat{x}^2 + \frac{\hat{p}^2}{ m \omega } \\
 &= \tfrac{2}{\omega} \hat{H}
-\end{align}
+\end{align*}
 
 \noindent Then
-\begin{equation}
+\begin{equation*}
 \hat{H} = \tfrac{1}{2} \omega ( \hat{a}^\dagger \hat{a} + \hat{a} \hat{a}^\dagger )
-\end{equation}
+\end{equation*}
 
 % Page 3
 
 \noindent Let's consider the commutator of the operators $\hat{a}$ and $\hat{a}^\dagger$. ($\hbar = 1$)
-\begin{align}
-[ \hat{a}, \hat{a}^\dagger ] &= \dfrac{1}{2 m \omega} \left\lbrace ( m \omega \hat{x} + i \hat{p} ) ( m \omega \hat{x} - i \hat{p} ) - ( m \omega \hat{x} - i \hat{p} ) ( m \omega \hat{x} + i \hat{p} ) \right\rbrace \nonumber\\
-&= \dfrac{1}{2 m \omega} \left\lbrace m^2 \omega^2 \hat{x}^2 - i m \omega [ \hat{x}, \hat{p} ] + \hat{p}^2 - ( m^2 \omega^2 \hat{x}^2 + i m \omega [ \hat{x}, \hat{p} ] + \hat{p}^2 ) \right\rbrace \nonumber\\
+\begin{align*}
+[ \hat{a}, \hat{a}^\dagger ] &= \dfrac{1}{2 m \omega} \left\lbrace ( m \omega \hat{x} + i \hat{p} ) ( m \omega \hat{x} - i \hat{p} ) - ( m \omega \hat{x} - i \hat{p} ) ( m \omega \hat{x} + i \hat{p} ) \right\rbrace \\
+&= \dfrac{1}{2 m \omega} \left\lbrace m^2 \omega^2 \hat{x}^2 - i m \omega [ \hat{x}, \hat{p} ] + \hat{p}^2 - ( m^2 \omega^2 \hat{x}^2 + i m \omega [ \hat{x}, \hat{p} ] + \hat{p}^2 ) \right\rbrace \\
 &= -i ( i ) \nonumber\\
 &= +1
-\end{align}
+\end{align*}
 
 \noindent That is
-\begin{equation}
+\begin{equation*}
 [ \hat{a}, \hat{a}^\dagger ] = 1 \qquad \Rightarrow \qquad \hat{a} \hat{a}^\dagger = 1 + \hat{a}^\dagger \hat{a}
-\end{equation}
+\end{equation*}
 and of course
-\begin{equation}
+\begin{equation*}
 [ \hat{a}, \hat{a} ] = 0
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
 [ \hat{a}^\dagger, \hat{a}^\dagger ] = 0
-\end{equation}
+\end{equation*}
 
 \noindent Then
-\begin{align}
-\hat{H} &= \tfrac{1}{2} \omega ( \hat{a}^\dagger \hat{a} + \hat{a} \hat{a}^\dagger ) \nonumber\\
-&= \tfrac{1}{2} \omega ( \hat{a}^\dagger \hat{a} + 1 + \hat{a}^\dagger \hat{a} ) \nonumber\\
+\begin{align*}
+\hat{H} &= \tfrac{1}{2} \omega ( \hat{a}^\dagger \hat{a} + \hat{a} \hat{a}^\dagger ) \\
+&= \tfrac{1}{2} \omega ( \hat{a}^\dagger \hat{a} + 1 + \hat{a}^\dagger \hat{a} ) \\
 &= \omega ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} )
-\end{align}
+\end{align*}
 
 % Page 4
 
 \noindent Now look at
-\begin{align}
-[ \hat{H}, \hat{a} ] &= \omega \left\lbrace ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a} - \hat{a} ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \right\rbrace \nonumber\\
+\begin{align*}
+[ \hat{H}, \hat{a} ] &= \omega \left\lbrace ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a} - \hat{a} ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \right\rbrace \\
 &= \omega ( \hat{a}^\dagger \hat{a} \hat{a} - \hat{a} \hat{a}^\dagger \hat{a} ) \nonumber\\
-&= \omega [ \hat{a}^\dagger \hat{a} \hat{a} - ( 1 + \hat{a}^\dagger \hat{a} ) \hat{a} ] \nonumber\\
+&= \omega [ \hat{a}^\dagger \hat{a} \hat{a} - ( 1 + \hat{a}^\dagger \hat{a} ) \hat{a} ] \\
 &= -\omega \hat{a}
-\end{align}
+\end{align*}
 and
-\begin{align}
-[ \hat{H}, \hat{a}^\dagger ] &= \omega \left\lbrace ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a}^\dagger - \hat{a}^\dagger ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \right\rbrace \nonumber\\
-&= \omega ( \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \hat{a}^\dagger \hat{a}^\dagger \hat{a} ) \nonumber\\
-&= \omega [ \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \hat{a}^\dagger ( \hat{a} \hat{a}^\dagger - 1 ) ] \nonumber\\
+\begin{align*}
+[ \hat{H}, \hat{a}^\dagger ] &= \omega \left\lbrace ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a}^\dagger - \hat{a}^\dagger ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \right\rbrace \\
+&= \omega ( \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \hat{a}^\dagger \hat{a}^\dagger \hat{a} ) \\
+&= \omega [ \hat{a}^\dagger \hat{a} \hat{a}^\dagger - \hat{a}^\dagger ( \hat{a} \hat{a}^\dagger - 1 ) ] \\
 &= \omega \hat{a}^\dagger
-\end{align}
+\end{align*}
 
 % Page 5
 
 \noindent Label the states by
-\begin{equation}
+\begin{equation*}
 \ket{n} \qquad E_n = ( n + \tfrac{1}{2} ) \omega \qquad \hat{H} \ket{n} = ( n + \tfrac{1}{2} ) \omega \ket{n}
-\end{equation}
+\end{equation*}
 and look at
-\begin{align}
-\hat{H} \hat{a} \ket{n} &= \omega ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a} \ket{n} \nonumber\\
+\begin{align*}
+\hat{H} \hat{a} \ket{n} &= \omega ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a} \ket{n} \\
 &= \omega ( \hat{a}^\dagger \hat{a} \hat{a} + \tfrac{1}{2} \hat{a} ) \ket{n} \nonumber\\
-&= \omega \left[ ( \hat{a} \hat{a}^\dagger - 1 ) \hat{a} + \tfrac{1}{2} \hat{a} \right] \ket{n} \nonumber\\
-&= \omega \hat{a} ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} - 1 ) \ket{n} \nonumber\\
-&= \hat{a} ( \hat{H} - \omega ) \ket{n} \nonumber\\
-&= \hat{a} \left[ ( \hat{n} + \tfrac{1}{2} ) \omega - \omega \right] \ket{n} \nonumber\\
+&= \omega \left[ ( \hat{a} \hat{a}^\dagger - 1 ) \hat{a} + \tfrac{1}{2} \hat{a} \right] \ket{n} \\
+&= \omega \hat{a} ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} - 1 ) \ket{n} \\
+&= \hat{a} ( \hat{H} - \omega ) \ket{n} \\
+&= \hat{a} \left[ ( \hat{n} + \tfrac{1}{2} ) \omega - \omega \right] \ket{n} \\
 &= ( n - \tfrac{1}{2} ) \omega \hat{a} \ket{n}
-\end{align}
-\begin{equation}
+\end{align*}
+\begin{equation*}
 \Rightarrow \quad \hat{a} \ket{n} \propto \ket{n-1}
-\end{equation}
+\end{equation*}
 
 \noindent What is the constant of proportionality?
 
 % Page 6
 
 \noindent From
-\begin{equation}
+\begin{equation*}
 \hat{H} \ket{n} = ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \omega \ket{n} = ( n + \tfrac{1}{2} ) \omega \ket{n}
-\end{equation}
+\end{equation*}
 we see that the number operator is
-\begin{equation}
+\begin{equation*}
 \hat{N} = \hat{a}^\dagger \hat{a}
-\end{equation}
+\end{equation*}
 
 \noindent Then
-\begin{equation}
+\begin{equation*}
 \braket{ n | \hat{a}^\dagger \hat{a} | n } = n
-\end{equation}
+\end{equation*}
 
 \noindent But
-\begin{equation}
+\begin{equation*}
 \hat{a} \ket{n} = c \ket{n-1}
-\end{equation}
+\end{equation*}
 and
-\begin{equation}
+\begin{equation*}
 \bra{n} \hat{a}^\dagger = c^* \bra{n-1}
-\end{equation}
+\end{equation*}
 
 \noindent Then
-\begin{equation}
+\begin{equation*}
 n = \braket{ n | \hat{a}^\dagger \hat{a} | n } = {|c|}^2 \braket{ n-1 | n-1 } = {|c|}^2
-\end{equation}
+\end{equation*}
 and
-\begin{equation}
+\begin{equation*}
 c = \sqrt{n}
-\end{equation}
+\end{equation*}
 
 % Page 7
 
 \noindent That is
-\begin{equation}
+\begin{equation*}
 \hat{a} \ket{n} = \sqrt{n} \ket{n-1}
-\end{equation}
+\end{equation*}
 
 \noindent Now look at
-\begin{align}
-\hat{H} \hat{a}^\dagger \ket{n} &= \omega ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a}^\dagger \ket{n} \nonumber\\
-&= \omega ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a}^\dagger \ket{n} \nonumber\\
-&= \omega ( \hat{a}^\dagger \hat{a} \hat{a}^\dagger + \tfrac{1}{2} \hat{a}^\dagger ) \ket{n} \qquad \qquad \hat{a} \hat{a}^\dagger - \hat{a}^\dagger \hat{a} = 1 \nonumber \\
-&= \omega \hat{a}^\dagger [ ( 1 + \hat{a}^\dagger \hat{a} ) + \tfrac{1}{2} ] \ket{n} \nonumber \\
-&= \hat{a}^\dagger ( \hat{H} + \omega ) \ket{n} \nonumber \\
-&= \hat{a}^\dagger ( n + \tfrac{1}{2} + 1 ) \omega \ket{n} \nonumber \\
+\begin{align*}
+\hat{H} \hat{a}^\dagger \ket{n} &= \omega ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a}^\dagger \ket{n} \\
+&= \omega ( \hat{a}^\dagger \hat{a} + \tfrac{1}{2} ) \hat{a}^\dagger \ket{n} \\
+&= \omega ( \hat{a}^\dagger \hat{a} \hat{a}^\dagger + \tfrac{1}{2} \hat{a}^\dagger ) \ket{n} \qquad \qquad \hat{a} \hat{a}^\dagger - \hat{a}^\dagger \hat{a} = 1 \\
+&= \omega \hat{a}^\dagger [ ( 1 + \hat{a}^\dagger \hat{a} ) + \tfrac{1}{2} ] \ket{n} \\
+&= \hat{a}^\dagger ( \hat{H} + \omega ) \ket{n} \\
+&= \hat{a}^\dagger ( n + \tfrac{1}{2} + 1 ) \omega \ket{n} \\
 &= ( n + \tfrac{1}{2} + 1 ) \omega \hat{a}^\dagger \ket{n}
-\end{align}
-\begin{equation}
+\end{align*}
+\begin{equation*}
 \Rightarrow \quad \hat{a}^\dagger \ket{n} \propto \ket{n+1}
-\end{equation}
+\end{equation*}
 
 % Page 8
 
 \noindent But
-\begin{equation}
+\begin{equation*}
 \braket{ n+1 | \hat{a}^\dagger \hat{a} | n+1 } = n + 1
-\end{equation}
+\end{equation*}
 and
-\begin{equation}
+\begin{equation*}
 n + 1 = \braket{ n+1 | \hat{a}^\dagger \hat{a} | n+1 } = {|c|}^2 \braket{ n+1 | n+1 } = {|c|}^2
-\end{equation}
+\end{equation*}
+
+\noindent Then
+\begin{equation*}
+    \hat{a}^\dagger \ket{n} = \sqrt{n+1} \ket{n+1}
+\end{equation*}
+
+\noindent One of the modt important aspects of the spectrum of states of the quantized harmonic oscillator is that its energy levels are separated by a uniform amount: $\hbar \omega$. The state $\ket{n}$ has energy $n \hbar \omega$ and the state $\ket{n+1}$ has energy $(n+1) \hbar \omega$.
+
+\noindent With
+\begin{equation*}
+    \hat{H} \ket{n} = \left( n + \tfrac{1}{2} \right) \hbar \omega \ket{n}
+\end{equation*}
+we have the vacuum state $\ket{0}$ with energy $\tfrac{1}{2} \hbar \omega$. Then we can think of the state $\ket{n}$ as a state of $n$ quanta each of energy $\hbar \omega$ -- i.e., we can think of it as a \underline{multiparticle} state.
+
+\noindent With this interpretation, the operator $\hat{a}^\dagger$ is a \underline{creation operator} that creates a quantum of energy $\hbar \omega$, whereas $\hat{a}$ is a \underline{annihilation operator} that annihilates a quantum of energy $\hbar \omega$.
+
+% Page 9
+
+\noindent Now we can generate all of the states beginning with the vacuum state defined by
+\begin{equation*}
+    \hat{a} \ket{0} = 0
+\end{equation*}
+
+\noindent Then
+\begin{equation*}
+    \ket{n} = \dfrac{1}{\sqrt{n!}} {\left( \hat{a}^\dagger \right)}^n \ket{0}
+\end{equation*}
+$\dfrac{1}{\sqrt{n!}}$ cancels out the $\sqrt{n!}$ that appears when the $\hat{a}^\dagger$ act $n$ times.
+
+\noindent For example,
+\begin{align*}
+    \ket{2} &= \dfrac{1}{\sqrt{2}} \hat{a}^\dagger \left( \hat{a}^\dagger \ket{0} \right) \\
+    &= \dfrac{1}{\sqrt{2}} \hat{a}^\dagger \left( \sqrt{1} \ket{1} \right) \\
+    &= \dfrac{1}{\sqrt{2}} \sqrt{1+1} \ket{2} \\
+    &= \ket{2}
+\end{align*}
 
 \end{document}
