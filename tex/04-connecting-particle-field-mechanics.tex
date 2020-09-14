@@ -5,6 +5,11 @@
 \usepackage{braket}
 \usepackage{graphicx}
 
+\usepackage{textpos}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
 \title{Connecting Particle and Field Mechanics}
 \author{Anthony Mezzacappa}
 \date{September 1 and 3, 2020}
@@ -38,17 +43,38 @@ In the limit $N \rightarrow \infty$, this will not matter.
 
 % Page 2
 
+{%
+\begin{textblock*}{2in}(0.88in,1.25in)%
+\begin{minipage}[h!]{2in}
+    \begin{equation*}
+        \tikzmarknode{xdot}{\boxed{\dot{x}_n (t) = \dot{q}_n (t)}}
+    \end{equation*}
+\end{minipage}%
+\end{textblock*}%
+}
+
+{%
+\begin{textblock*}{2.8in}(2.7in,1.1in)%
+\begin{minipage}[h!]{2.8in}
+    \noindent it's only the difference in the displacements of the masses from their equilibrium position that contributes to the potential energy
+    \begin{align*}
+        \big( x_{n+1} (t) - x_n (t) \big) - a &= ( n + 1 ) a + q_{n+1} (t) \\
+        &\quad - n a - q_n (t) - a \\
+        &= q_{n+1} (t) - q_n (t)
+    \end{align*}
+\end{minipage}%
+\end{textblock*}%
+}
+
 \noindent The Lagrangian of this system is
 \begin{align*}
     L &= T - V \\
-    &= \frac{1}{2} m \sum_{n=1}^N \dot{q}_n^2 - \frac{1}{2} \kappa \sum_{n=1}^N (q_{n+1} - q_n)^2
+    &= \frac{1}{2} m \sum_{n=1}^N \tikzmarknode{qdot}{\dot{q}_n^2} - \frac{1}{2} \kappa \sum_{n=1}^N \underbrace{ {(q_{n+1} - q_n)}^2 }
 \end{align*}
 
-\noindent It's only the difference in the displacements of the masses from their equilibrium position that contributes to the potential energy
-\begin{align*}
-    \big( x_{n+1} (t) - x_n (t) \big) - a &= ( n + 1 ) a + q_{n+1} (t) - n a - q_n (t) - a \\
-    &= q_{n+1} (t) - q_n (t)
-\end{align*}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (xdot) -- (qdot.south);
+\end{tikzpicture}
 
 \noindent The Euler-Lagrangian EOM for each mass are
 \begin{equation}
@@ -92,14 +118,62 @@ In the limit $N \rightarrow \infty$, this will not matter.
 % Page 4
 
 \noindent Finally, the Poisson Bracket is
+\begin{align*}
+    \left\lbrace q_n, p_{n'} \right\rbrace &= \sum_{n=1}^N \left( \dfrac{ \partial q_n }{ \partial q_k } \dfrac{ \partial p_{n'} }{ \partial p_k } - \dfrac{ \partial q_n }{ \partial p_k } \dfrac{ \partial p_{n'} }{ \partial q_k } \right) \\
+    &= \sum_{n=1}^N \left( \delta_{nk} \delta_{n'k} \right) \\
+    &= \delta_{nn} \delta_{n'n} \\
+    &= \delta_{nn'}
+\end{align*}
+Now we need to solve the EOM for $q_n (t)$.
 
+\noindent Let
+\begin{equation*}
+    q_n (t) = q_n e^{ i \omega t }
+\end{equation*}
 
+\noindent Then
+\begin{equation*}
+    -m q_n \left( i^2 \omega^2 e^{ i \omega t } \right) + \kappa \left( q_{n+1} - 2 q_n + q_{n-1} \right) e^{ i \omega t } = 0
+\end{equation*}
+or
+\begin{equation*}
+    \left( m \omega^2 - 2 \kappa \right) q_n + \kappa \left( q_{n+1} + q_{n-1} \right) = 0
+\end{equation*}
 
+\noindent This has the solution
+\begin{equation*}
+    q_n = \dfrac{ a_k }{ \sqrt{N} } e^{ i k n a }
+\end{equation*}
 
+% Page 5
 
+\noindent Inserting
+\begin{equation*}
+    \left( m \omega^2 - 2 \kappa \right) \dfrac{1}{ \sqrt{N} } e^{ i k n a } + \kappa \dfrac{1}{ \sqrt{N} } e^{ i k n a } \left( e^{ i k a } + e^{ -i k a } \right) = 0
+\end{equation*}
 
+\noindent Then
+\begin{equation*}
+    \left( m \omega^2 - 2 \kappa \right) + 2 \kappa \cos{(ka)} = 0
+\end{equation*}
 
+\noindent This is the dispersion relation relating $\omega$ and $k$:
+\begin{equation*}
+    \omega^2 = \dfrac{1}{m} 2 \kappa \left( 1 - \cos{(ka)} \right) \qquad \Longrightarrow \qquad \dfrac{ 4 \kappa }{m} \sin^2{\left(\dfrac{ k a }{2}\right)} \Rightarrow \omega_\pm^2
+\end{equation*}
+or
+\begin{align*}
+    \omega_k &= \pm {\left[ \dfrac{ 2 \kappa }{m} \left( 1 - \cos{(ka)} \right) \right]}^\frac{1}{2} \\
+    &= \pm 2 \sqrt{\dfrac{\kappa}{m}} \sin{\left( \dfrac{ka}{2} \right)} \quad \Longrightarrow \quad \omega_{-k} = \omega_{k} ~ \mathrm{where} ~ \omega_k \equiv 2 \sqrt{\dfrac{\kappa}{m}} \sin{\left( \dfrac{ka}{2} \right)}, k>0
+\end{align*}
 
+\noindent Now let
+\begin{equation*}
+    q_n (t) = q_n^* e^{ -i \omega t }
+\end{equation*}
 
+% Page 6
+
+\noindent Then
 
 \end{document}
