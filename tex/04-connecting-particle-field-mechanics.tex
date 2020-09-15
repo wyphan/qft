@@ -175,5 +175,123 @@ or
 % Page 6
 
 \noindent Then
+\begin{equation*}
+    -m q_n^* \left( i^2 \omega^2 e^{ -i \omega t } \right) + \kappa \left( q_{n+1}^* - 2 q_n^* + q_{n-1}^* \right) e^{ -i \omega t } = 0
+\end{equation*}
+or
+\begin{equation*}
+    \left( m \omega^2 - 2 \kappa \right) q_n^* + \kappa \left( q_{n+1}^* + q_{n-1}^* \right) = 0
+\end{equation*}
+which has the solution
+\begin{equation*}
+    q_n^* = \dfrac{ a_k^* }{ \sqrt{N} } e^{ -i k n a }
+\end{equation*}
+
+\noindent Inserting
+\begin{equation*}
+    \left( m \omega^2 - 2 \kappa \right) e^{ -i k n a } + \kappa e^{ -i k n a } \left( e^{ -i k a } + e^{ i k a } \right) = 0
+\end{equation*}
+or
+\begin{equation*}
+    \left( m \omega^2 - 2 \kappa \right) + 2 \kappa \cos{(ka)}
+\end{equation*}
+as before.
+
+\noindent The general relation for $q_n (t)$ is then
+\begin{equation*}
+    q_n (t) = \dfrac{1}{\sqrt{N}} \sum_k \left( a_k e^{ i k n a } e^{ i \omega_k t } + a_k^* e^{ -i k n a } e^{ -i \omega_k t } \right)
+\end{equation*}
+
+% Page 7
+
+\noindent To determine the values over which we sum $k$, recall that
+\begin{equation*}
+    q_1 (0) = q_{N+1} (0)
+\end{equation*}
+which means that
+\begin{equation*}
+    \sum_k \left( e^{ i k a } + e^{ -i k a } \right) = \sum_k \left( e^{ i k (N+1) a } + e^{ -i k (N+1) a } \right)
+\end{equation*}
+
+\noindent Then
+\begin{align*}
+    \sum_k \cos{(ka)} &= \sum_k \cos{[\underbrace{ k (N+1) a}_{ k N a + k a }]} \\
+    &= \sum_k \left( \cos{(kNa)} \cos{(ka)} - \sin{(kNa)} \sin{(ka)} \right)
+\end{align*}
+which gives
+\begin{align*}
+    \cos{(kNa)} &= 1 \qquad \Longrightarrow \qquad k N a = 2 \pi l \qquad l = \pm 1, \pm 2, \dots \\
+    \sin{(kNa}) &= 0 \qquad \qquad ( l = 0 ~ \mathrm{corresponds} ~ \mathrm{to} ~ \mathrm{a} ~ \mathrm{trivial} ~ \mathrm{solution} )
+\end{align*}
+
+\noindent Then
+\begin{align*}
+    q_n (t) &= \dfrac{1}{\sqrt{N}} \sum_l \left( a_l e^{ i \frac{2 \pi l n}{N}} e^{ i \omega_l t } + a_l^* e^{ -i \frac{2 \pi l n}{N}} e^{ -i \omega_l t } \right) \\
+    &= \sum_l \left[ u_{n,l} a_l (t) + u_{n,l}^* a_l^* (t) \right]
+\end{align*}
+where
+\begin{align*}
+    u_{n,l} &= \dfrac{1}{\sqrt{N}} e^{ i \frac{ 2 \pi l n }{N} } \\
+    a_l (t) &= a_l e^{ i \omega_l t }
+\end{align*}
+
+% Page 8
+
+\noindent To determine the limits of $l$, note that the smallest wavelength that can fit on our chain is
+\begin{equation*}
+    \lambda_\mathrm{minimum} = 2a
+\end{equation*}
+
+\noindent Since
+\begin{align*}
+    \lambda &= \dfrac{2 \pi}{k} \\
+    &= \dfrac{2 \pi}{\frac{2 \pi l}{ N a }} \\
+    &= \dfrac{Na}{l}
+\end{align*}
+we have
+\begin{align*}
+    \lambda_\mathrm{min} &= \dfrac{N a}{l_\mathrm{max}} \\
+    &= 2a
+\end{align*}
+
+\noindent Then
+\begin{equation*}
+    l_\mathrm{max} = \dfrac{N}{2}
+\end{equation*}
+and our sum over $l$ becomes
+\begin{equation*}
+    q_n (t) = \sum_{ l = -\frac{N}{2} }^{ +\frac{N}{2} }  \left[ a_l (t) u_{n,l} + a_l^* (t) u_{n,l}^* \right]
+\end{equation*}
+
+% Page 9
+
+\noindent Now compute $p_n (t)$:
+\begin{align*}
+    p_n (t) &= m \dot{q}_n (t) \\
+    &= m \sum_{ l = -\frac{N}{2} }^{ +\frac{N}{2} } i \omega_l \left[ a_l (t) u_{n,l} - a_l^* (t) u_{n,l}^* \right]
+\end{align*}
+
+\noindent Let's now compute the Hamiltonian:
+\begin{equation*}
+    H = \dfrac{1}{2m} \sum_{n=1}^{N} p_n^2 + \frac{1}{2} \kappa \sum_{n=1}^{N} {\left( q_{n+1} - q_n \right)}^2
+\end{equation*}
+
+\begin{align*}
+    T &= \sum_{n=1}^{N} \dfrac{p_n^2}{2m} \\
+    &= - \dfrac{m}{2} \sum_n \left\lbrace \left[ \omega_l \left( a_l (t) u_{n,l} - a_l^* (t) u_{n,l}^* \right) \right] \left[ \omega_{l'} \left( a_{l'} (t) u_{n,l'} - a_{l'}^* (t) u_{n,l'}^* \right) \right] \right\rbrace \\
+    &= - \dfrac{m}{2} \sum_n \bigg\lbrace \sum_{l l'} \omega_l \omega_{l'} \Big( a_l (t) a_{l'} (t) u_{n,l} u_{n,l'} - a_l (t) a_{l'}^* (t) u_{n,l} u_{n,l'}^* \\
+    & \hspace{1.4in} - a_l^* (t) a_{l'} (t) u_{n,l}^* u_{n,l'} + a_l (t)^* a_{l'}^* (t) u_{n,l}^* u_{n,l'}^* \Big) \bigg\rbrace 
+\end{align*}
+
+\noindent The orthogonality of the basis functions $u_{n,l}$ tells us that
+\begin{align*}
+    \sum_{n=1}^{N} u_{n,l'}^* u_{n,l} &= \delta_{l l'} \\
+    \sum_{n=1}^{N} u_{n,l'} u_{n,l} &= \delta_{l,-l'} \\
+    \sum_{n=1}^{N} u_{n,l'}^* u_{n,l}^* &= \delta_{l,-l'}
+\end{align*}
+
+% Page 10
+
+
 
 \end{document}
