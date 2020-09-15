@@ -15,9 +15,7 @@
 \date{September 1 and 3, 2020}
 
 \begin{document}
-
 \setlength{\parskip}{1em}
-
 \maketitle
 
 \noindent Consider we have a classical linear chain of equal masses connected by spring of equal spring constant. The springs can oscillate about there equilibrium position in one dimension. In equilibrium all masses are separated by an equal length. \par
@@ -54,9 +52,9 @@ In the limit $N \rightarrow \infty$, this will not matter.
 }
 
 {%
-\begin{textblock*}{2.8in}(2.7in,1.1in)%
-\begin{minipage}[h!]{2.8in}
-    \noindent it's only the difference in the displacements of the masses from their equilibrium position that contributes to the potential energy
+\begin{textblock*}{3in}(2.7in,1.1in)%
+\begin{minipage}[h!]{3in}
+    \noindent it's only the difference in the displacements of the masses from their equilibrium position that \linebreak contributes to the potential energy
     \begin{align*}
         \big( x_{n+1} (t) - x_n (t) \big) - a &= ( n + 1 ) a + q_{n+1} (t) \\
         &\quad - n a - q_n (t) - a \\
@@ -292,6 +290,81 @@ and our sum over $l$ becomes
 
 % Page 10
 
+\noindent Then
+\begin{align*}
+    T &= - \dfrac{m}{2} \sum_{l l'} \omega_l \omega_{l'} \Big( a_l (t) a_{l'} (t) \delta_{l,-l'} - a_l (t) a_{l'}^* (t) \delta_{l l'} \\
+    & \hspace{1.1in} - a_l^* (t) a_{l'} (t) \delta_{l l'} + a_l (t)^* a_{l'}^* (t) \delta_{l,-l'} \Big) \\
+    &= - \dfrac{m}{2} \sum_l \Big( \omega_l \underbrace{\omega_{-l}}_{=\omega_l} a_l (t) a_{-l} (t) - \omega_l^2 a_l (t) a_l^* (t) - \omega_l^2 a_l^* (t) a_l (t) + \omega_l \underbrace{\omega_{-l}}_{=\omega_l} a_l^* (t) a_{-l}^* (t) \Big) \\
+    &= - \dfrac{m}{2} \sum_l \omega_l^2 \Big( a_l (t) a_{-l} (t) - a_l (t) a_l^* (t) - a_l^* (t) a_l (t) + a_l^* (t) a_{-l}^* (t) \Big) \\
+    &= - \dfrac{m}{2} \sum_l \omega_l^2 \Big( a_l e^{ i \omega_l t } a_{-l} e^{ i \omega_{-l} t } - a_l e^{ i \omega_l t } a_l^* e^{ -i \omega_l t } \\
+    & \hspace{0.9in} - a_l^* e^{ -i \omega_l t } a_l e^{ i \omega_l t } + a_l^* e^{ -i \omega_l t } a_{-l}^* e^{ -i \omega_{-l} t } \Big) \\
+    &= - \dfrac{m}{2} \sum_l \omega_l^2 \Big( a_l a_{-l} e^{ 2i \omega_l t } - a_l a_l^* - a_l^* a_l + a_l^* a_{-l}^* e^{ -2i \omega_l t } \Big)
+\end{align*}
 
+% Pages 11-12
+
+\noindent Now let's compute
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    V &= \frac{1}{2} \kappa \sum_{n=1}^N {( q_{n+1} - q_n )}^2 \\
+    &= \frac{1}{2} \kappa \sum_n {\Big\lbrace \sum_l \big[ \left( a_l (t) u_{n+1,l} + a_l^* (t) u_{n+1,l}^* \right) - \left( a_l (t) u_{n,l} + a_l^* (t) u_{n,l}^* \right) \big] \Big\rbrace}^2 \\
+    %
+    &= \frac{1}{2} \kappa \sum_n \sum_l \sum_{l'} \Big\lbrace \left( a_l (t) u_{n+1,l} + a_l^* (t) u_{n+1,l}^* \right) \left( a_{l'} (t) u_{n+1,l'} + a_{l'}^* (t) u_{n+1,l'}^* \right) \\
+    & \hspace{1.1in} + \left( a_l (t) u_{n,l} + a_l^* (t) u_{n,l}^* \right) \left( a_{l'} (t) u_{n,l'} + a_{l'}^* (t) u_{n,l'}^* \right) \\
+    & \hspace{1.1in} - \left( a_l (t) u_{n+1,l} + a_l^* (t) u_{n+1,l}^* \right)  \left( a_{l'} (t) u_{n,l'} + a_{l'}^* (t) u_{n,l'}^* \right) \\
+    & \hspace{1.1in} - \left( a_l (t) u_{n,l} + a_l^* (t) u_{n,l}^* \right) \left( a_{l'} (t) u_{n+1,l'} + a_{l'}^* (t) u_{n+1,l'}^* \right) \Big\rbrace \\
+    %
+    &= \frac{1}{2} \kappa \sum_n \sum_l \sum_{l'} \Big\lbrace \left( a_l (t) e^{i \frac{2 \pi l}{N}} u_{n,l} + a_l^* (t) e^{-i \frac{2 \pi l}{N}} u_{n,l}^* \right) \left( a_{l'} (t) e^{i \frac{2 \pi l'}{N}} u_{n,l'} + a_{l'}^* (t) e^{-i \frac{2 \pi l'}{N}} u_{n,l'}^* \right) \\
+    & \hspace{1.1in} + \left( a_l (t) u_{n,l} + a_l^* (t) u_{n,l}^* \right) \left( a_{l'} (t) u_{n,l'} + a_{l'}^* (t) u_{n,l'}^* \right) \\
+    & \hspace{1.1in} - \left( a_l (t) e^{i \frac{2 \pi l}{N}} u_{n,l} + a_l^* (t) e^{-i \frac{2 \pi l}{N}} u_{n,l}^* \right)  \left( a_{l'} (t) u_{n,l'} + a_{l'}^* (t) u_{n,l'}^* \right) \\
+    & \hspace{1.1in} - \left( a_l (t) u_{n,l} + a_l^* (t) u_{n,l}^* \right) \left( a_{l'} (t) e^{i \frac{2 \pi l'}{N}} u_{n,l'} + a_{l'}^* (t) e^{-i \frac{2 \pi l'}{N}} u_{n,l'}^* \right) \Big\rbrace \\
+    %
+    &= \frac{1}{2} \kappa \sum_l \sum_{l'} \Big\lbrace a_l (t) a_{l'} (t) e^{i \frac{2 \pi l}{N}} e^{i \frac{2 \pi l'}{N}} \delta_{l,-l'} + a_l (t) a_{l'}^* (t) e^{i \frac{2 \pi l}{N}} e^{-i \frac{2 \pi l'}{N}} \delta_{l,l'} \\
+    & \hspace{0.9in} + a_l^* (t) a_{l'} (t) e^{-i \frac{2 \pi l}{N}} e^{i \frac{2 \pi l'}{N}} \delta_{l,l'} + a_l^* (t) a_{l'}^* e^{-i \frac{2 \pi l}{N}} e^{-i \frac{2 \pi l'}{N}} \delta_{l,-l'} \\
+    & \hspace{0.9in} + a_l (t) a_{l'} (t) \delta_{l,-l'} + a_l (t) a_{l'}^* (t) \delta_{l,l'} + a_l^* (t) a_{l'} (t) \delta_{l,l'} + a_l^* (t) a_{l'}^* (t) \delta_{l,-l'} \\
+    & \hspace{0.9in} - a_l (t) a_{l'} (t) e^{i \frac{2 \pi l}{N}} \delta_{l,-l'} - a_l (t) a_{l'}^* (t) e^{i \frac{2 \pi l}{N}} \delta_{l,l'} \\
+    & \hspace{0.9in} - a_l^* (t) a_{l'} (t) e^{-i \frac{2 \pi l}{N}} \delta_{l,l'} - a_l^* (t) a_{l'}^* (t) e^{-i \frac{2 \pi l}{N}} \delta_{l,-l'} \\
+    & \hspace{0.9in} - a_l (t) a_{l'} (t) e^{i \frac{2 \pi l'}{N}} \delta_{l,-l'} - a_l (t) a_{l'}^* (t) e^{-i \frac{2 \pi l'}{N}} \delta_{l,l'} \\
+    & \hspace{0.9in} - a_l^* (t) a_{l'} (t) e^{i \frac{2 \pi l'}{N}} \delta_{l,l'} - a_l^* (t) a_{l'}^* (t) e^{-i \frac{2 \pi l'}{N}} \delta_{l,-l'} \Big\rbrace \\
+    %
+    &= \frac{1}{2} \kappa \sum_l \Big\lbrace a_l (t) a_{-l} (t) + a_l (t) a_l^* (t) + a_l^* (t) a_l (t) + a_l^* (t) a_{-l}^* (t) \\
+    & \hspace{0.7in} + a_l (t) a_{-l} (t) + a_l (t) a_l^* (t) + a_l^* (t) a_l (t) + a_l^* (t) a_{-l}^* (t) \\
+    & \hspace{0.7in} - a_l (t) a_{-l} (t) e^{i \frac{2 \pi l}{N}} - a_l (t) a_l^* (t) e^{i \frac{2 \pi l}{N}} \\
+    & \hspace{0.7in} - a_l^* (t) a_l (t) e^{-i \frac{2 \pi l}{N}} - a_l^* (t) a_{-l}^* (t) e^{-i \frac{2 \pi l}{N}} \\
+    & \hspace{0.7in} - a_l (t) a_{-l} (t) e^{-i \frac{2 \pi l}{N}} - a_l (t) a_l^* (t) e^{-i \frac{2 \pi l}{N}} \\
+    & \hspace{0.7in} - a_l^* (t) a_l (t) e^{i \frac{2 \pi l}{N}} - a_l^* (t) a_{-l}^* (t) e^{i \frac{2 \pi l}{N}} \Big\rbrace \\
+    \\
+    &= \frac{1}{2} \kappa \sum_l \Big\lbrace a_l (t) a_{-l} (t) \left[ 2 - \left( e^{i \frac{2 \pi l}{N}} + e^{-i \frac{2 \pi l}{N}} \right) \right] \\
+    & \hspace{0.7in} + a_l (t) a_l^* (t) \left[ 2 - \left( e^{i \frac{2 \pi l}{N}} + e^{-i \frac{2 \pi l}{N}} \right) \right] \\
+    & \hspace{0.7in} + a_l^* (t) a_l (t) \left[ 2 - \left( e^{i \frac{2 \pi l}{N}} + e^{-i \frac{2 \pi l}{N}} \right) \right] \\
+    & \hspace{0.7in} + a_l^* (t) a_{-l}^* (t) \left[ 2 - \left( e^{i \frac{2 \pi l}{N}} + e^{-i \frac{2 \pi l}{N}} \right) \right] \Big\rbrace \\
+    %
+    &= \kappa \sum_l \left( a_l (t) a_{-l} (t) + a_l (t) a_l^* (t) + a_l^* (t) a_l (t) + a_l^* (t) a_{-l}^* (t) \right) \big( \underbrace{ 1 - \cos{\left( \tfrac{ 2 \pi l }{N} \right)} }_{ 1 - \cos{(ka)} } \big)
+\end{align*}
+\endgroup
+
+% Page 13
+
+\noindent But
+\begin{equation*}
+    \dfrac{ m \omega_k^2 }{ 2 \kappa } =  1 - \cos{(ka)}
+\end{equation*}
+
+\noindent Then
+\begin{equation*}
+    V = \dfrac{m}{2} \sum_l \omega_l^2 \Big( a_l a_{-l} e^{ 2i \omega_l t } + a_l a_l^* + a_l^* a_l + a_l^* a_{-l}^* e^{ -2i \omega_l t } \Big)
+\end{equation*}
+
+\noindent Finally
+\begin{align*}
+    H &= T + V \\
+    &= - \dfrac{m}{2} \sum_l \omega_l^2 \Big( a_l a_{-l} e^{ 2i \omega_l t } - a_l a_l^* - a_l^* a_l + a_l^* a_{-l}^* e^{ -2i \omega_l t } \Big) \\
+    & \quad + \dfrac{m}{2} \sum_l \omega_l^2 \Big( a_l a_{-l} e^{ 2i \omega_l t } + a_l a_l^* + a_l^* a_l + a_l^* a_{-l}^* e^{ -2i \omega_l t } \Big) \\
+    &= \sum_l m \omega_l^2 \Big( a_l^* a_l + a_l a_l^* \Big)
+\end{align*}
+But this is the Hamiltonian for a collection of \underline{uncoupled} oscillators, each one corresponding to a different normal mode of the system.
+
+\noindent When we quantize this system, the quanta of the modes will correspond to the \underline{quasi-particles} known as \underline{phonons}.
 
 \end{document}
