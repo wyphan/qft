@@ -1,0 +1,131 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{braket}
+\usepackage{tensor}
+
+\usepackage{textpos}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+\title{Noether's Theorem}
+\author{Anthony Mezzacappa}
+\date{September 15 and 17, 2020}
+
+\begin{document}
+
+\setlength{\parskip}{1em}
+
+\maketitle
+
+\noindent If $\phi$ satisfies the Euler-Lagrange EOM ($\delta S = 0$), for \underline{any} variation we have
+\begin{equation*}
+    \delta \mathscr{L} = \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \delta \phi \right) \tikzmarknode{deltaL}{}
+\end{equation*}
+
+{%
+\begin{textblock*}{3.25in}(2.75in,-0.5in)%
+\begin{minipage}[h!]{3.25in}
+    \begin{align*}
+        \tikzmarknode{inset}{~} \delta \mathscr{L} &= \bigg[ \underbrace{ \dfrac{ \partial \mathscr{L} }{ \partial \phi } - \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \right) }_{=0} \bigg] \delta \phi \\
+        &\quad + \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \delta \phi \right) \\
+        &= \partial_\mu \left( \quad \right)
+    \end{align*}
+\end{minipage}%
+\end{textblock*}%
+}
+
+{%
+\begin{textblock*}{3.25in}(3.6in,0.75in)%
+\begin{minipage}[h!]{3.25in}
+    \begin{align*}
+        \delta S &= \int \mathrm{d}^4 x~ \delta \mathscr{L} \\
+        &= \int \mathrm{d}^4 x~ \partial_\mu ( \quad ) \\
+        &= 0
+    \end{align*}
+\end{minipage}%
+\end{textblock*}%
+}
+
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (inset.north) -- (deltaL.west);
+\end{tikzpicture}
+
+\noindent Assume the action also has the symmetry
+\begin{equation*}
+    \delta_\Delta S = 0
+\end{equation*}
+under the \underline{specific} transformation
+\begin{equation*}
+    \phi \longrightarrow \phi + \Delta
+\end{equation*}
+
+\noindent Given the action is invariant under the transformation even though the \linebreak Lagrangian density may not be,
+\begin{equation} \label{l8a-eq1}
+    \delta_\Delta \mathscr{L} = \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \Delta \right) \neq 0
+\end{equation} % Equation 1
+\begin{equation} \label{l8a-eq2}
+    \delta_\Delta \mathscr{L} = \partial_\mu \tensor{K}{^\mu}
+\end{equation} % Equation 2
+\begin{equation*}
+    \delta_\Delta S = \int \mathrm{d}^4 x~ \delta_\Delta \mathscr{L} = \int \mathrm{d}^4 x~ \partial_\mu \tensor{K}{^\mu} = 0
+\end{equation*}
+-- i.e., $\delta_\Delta \mathscr{L}$ must be a total divergence. Equating \eqref{l8a-eq1} and \eqref{l8a-eq2}, we get
+\begin{equation*}
+    \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \Delta - \tensor{K}{^\mu} \right) = 0
+\end{equation*}
+-- i.e., we have a \underline{conserved current} ($\partial_\mu \tensor{j}{^\mu} = 0$)
+\begin{equation*}
+    \tensor{j}{^\mu} \equiv \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \Delta - \tensor{K}{^\mu}
+\end{equation*}
+so, with a symmetry there is a conserved current.
+
+% Page 1a
+
+\noindent\rule{\textwidth}{.5pt}
+
+\noindent A conserved current will be associated with a conserved "charge"
+\begin{equation*}
+    \partial_\mu \tensor{j}{^\mu} = \partial_0 \tensor{j}{^0} + \partial_i \tensor{j}{^i}
+\end{equation*}
+
+\noindent Integrate over all of space
+\begin{equation*}
+    \int \mathrm{d}^3 x~ \left( \partial_0 \tensor{j}{^0} + \partial_i \tensor{j}{^i} \right) = 0
+\end{equation*}
+
+\noindent Then
+\begin{align*}
+    \partial_0 \int \mathrm{d}^3 x~ \tensor{j}{^0} &= - \int \mathrm{d}^3 x~ \partial_i \tensor{j}{^i} \\
+    &= 0
+\end{align*}
+and we identify
+\begin{equation*}
+    Q \equiv \int \mathrm{d}^3 x~ \tensor{j}{^0}
+\end{equation*}
+with the conserved "charge".
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Back to Page 1
+
+\noindent How do we find $\tensor{K}{^\mu}$?
+
+% Page 2
+
+\noindent Consider the \underline{translation invariance} of the action under the transformation
+\begin{equation*}
+    \tensor{x}{^\mu} \longrightarrow \tensor{x'}{^\mu} = \tensor{x}{^\mu} - \tensor{a}{^\mu}
+\end{equation*}
+
+% Page 2a
+
+\noindent\rule{\textwidth}{.5pt}
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Back to Page 2
+
+\end{document}
