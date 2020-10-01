@@ -82,6 +82,7 @@ under the \underline{specific} transformation
 \end{equation*}
 so, with a symmetry there is a conserved current.
 
+
 % Page 1a
 
 \noindent\rule{\textwidth}{.5pt}
@@ -107,25 +108,176 @@ and we identify
 \end{equation*}
 with the conserved "charge".
 
-\noindent\rule{\textwidth}{.5pt}
-
-% Back to Page 1
-
-\noindent How do we find $\tensor{K}{^\mu}$?
-
-% Page 2
-
-\noindent Consider the \underline{translation invariance} of the action under the transformation
-\begin{equation*}
-    \tensor{x}{^\mu} \longrightarrow \tensor{x'}{^\mu} = \tensor{x}{^\mu} - \tensor{a}{^\mu}
-\end{equation*}
-
 % Page 2a
 
 \noindent\rule{\textwidth}{.5pt}
 
+\noindent Consider a coordinate transformation corresponding to a spacetime translation
+\begin{equation*}
+    \mathbf{x} \longrightarrow \mathbf{x}' = \mathbf{x} - \mathbf{a}
+\end{equation*}
+.i.e.,
+\begin{equation*}
+    \tensor{x}{^\mu} \longrightarrow \tensor{x}{^\prime^\mu} = \tensor{x}{^\mu} - \tensor{a}{^\mu}
+\end{equation*}
+where
+\begin{equation*}
+    \tensor{a}{^\mu} = ( \tensor{a}{^0}, \tensor{a}{^1}, \tensor{a}{^2}, \tensor{a}{^3} )
+\end{equation*}
+and $\tensor{a}{^0^,^1^,^2^,^3}$ are all constants (they can be different).
+
+\noindent Consider three points $P$, $Q$, and $R$, and their coordinates before and after the transformation:
+
+% Insert diagram here
+
+So, \underline{at $\mathbf{x}$}, \underline{we have replaced} the field \underline{$\phi (\mathbf{x})$ by $\phi ( \mathbf{x} + \mathbf{a} )$}, and
+\begin{align*}
+    \delta \phi (\mathbf{x}) &= \phi' (\mathbf{x}) - \phi (\mathbf{x}) \\
+    &= \phi ( \mathbf{x} + \mathbf{a} ) - \phi (\mathbf{x}) \\
+    &= \phi (\mathbf{x}) + \tensor{\partial}{_\mu} \phi (\mathbf{x}) \tensor{a}{^\mu} - \phi (\mathbf{x}) \\
+    &= \tensor{\partial}{_\mu} \phi (\mathbf{x}) \tensor{a}{^\mu}
+\end{align*}
+
+\noindent It is in the sense that we mean we have moved the fields rather than the coordinates, which is a viewpoint that emerges when we focus \underline{on a given $\mathbf{x}$}.
+
+\noindent This is the ACTIVE viewpoint.
+
+\noindent The PASSIVE viewpoint emerges when we focus on what happens \underline{at a specific} \underline{point} (e.g., $Q$):
+
+\vspace*{-16pt} \begin{center}
+\begin{tabular}{lcc}
+    at $Q$: & $\phi' (\mathbf{x}') = \phi (\mathbf{x})$ & $\phi' (Q) = \phi(Q)$ \\
+    at $R$: & $\phi' ( \mathbf{x}' + \mathbf{a} ) = \phi ( \mathbf{x} + \mathbf{a} )$ & $\phi' (R) = \phi (R)$
+\end{tabular}
+\end{center} \vspace*{-16pt}
+
+\noindent i.e., the \underline{\underline{value}} of the scalar field at a point does not change as the coordinates of the point change
+\begin{equation*}
+    \delta \phi (Q) = \phi' (\mathbf{x}') - \phi (\mathbf{x}) = 0
+\end{equation*}
+
 \noindent\rule{\textwidth}{.5pt}
 
-% Back to Page 2
+% Page 2
+
+\noindent How do we find $\tensor{K}{^\mu}$?
+
+\noindent Consider the \underline{translation invariance} of the action under the transformation
+\begin{equation*} % Note: tensor package doesn't like \tensor{x'}{^\mu}
+    \tensor{x}{^\mu} \longrightarrow \tensor{x}{^\prime^\mu} = \tensor{x}{^\mu} - \tensor{a}{^\mu}
+\end{equation*}
+
+\noindent Then
+\begin{equation*}
+    \phi (\mathbf{x}) \longrightarrow \phi ( \mathbf{x} + \mathbf{a} ) = \phi (\mathbf{x}) + \dfrac{ \partial \phi }{ \partial \tensor{x}{^\mu} } \tensor{a}{^\mu}
+\end{equation*}
+and
+\begin{equation*}
+    \delta_\Delta \phi = \dfrac{ \partial \phi }{ \partial \tensor{x}{^\mu} } \tensor{a}{^\mu}
+\end{equation*}
+
+\noindent Then
+\begin{align*}
+    \delta_\Delta \left( \tensor{\partial}{_\mu} \phi \right) &= \tensor{\partial}{_\mu} \left( \delta_\Delta \phi \right) \\
+    &= \tensor{\partial}{_\mu} \! \left( \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } \tensor{a}{^\alpha} \right) \\
+    &= \dfrac{ \partial^2 \phi }{ \partial \tensor{x}{^\mu} \tensor{x}{^\alpha} } \tensor{a}{^\alpha}
+\end{align*}
+
+\noindent Now we can compute
+\begin{align*}
+    \delta_\Delta \mathscr{L} &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \delta_\Delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \delta_\Delta ( \tensor{\partial}{_\mu} \phi ) \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } \tensor{a}{^\alpha} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \dfrac{ \partial^2 \phi }{ \partial \tensor{x}{^\mu} \tensor{x}{^\alpha} } \tensor{a}{^\alpha} \\
+    &= \left( \dfrac{ \partial \mathscr{L} }{ \partial \phi } \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \dfrac{\partial}{ \partial \tensor{x}{^\alpha} } \! ( \tensor{\partial}{_\mu} \phi ) \right) \tensor{a}{^\alpha} \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial \tensor{x}{^\alpha} } \tensor{a}{^\alpha} \\
+    &= \tensor{\partial}{_\alpha} ( \mathscr{L} \tensor{a}{^\alpha} )
+\end{align*}
+
+% Page 3
+
+\noindent Then
+\begin{equation*}
+    \tensor{K}{^\mu} = \mathscr{L} \tensor{a}{^\mu}
+\end{equation*}
+and
+\begin{align*}
+    \tensor{j}{^\mu} &= \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \Delta - \tensor{K}{^\mu} \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } \tensor{a}{^\alpha} - \mathscr{L} \tensor{a}{^\mu} \\
+    &= \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } - \mathscr{L} \tensor{\delta}{^\mu_\alpha} \right) \tensor{a}{^\alpha}
+\end{align*}
+
+\noindent Then
+\begin{equation*}
+    \tensor{\partial}{_\mu} \tensor{j}{^\mu} = \tensor{a}{^\alpha} \tensor{\partial}{_\mu} \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } - \mathscr{L} \tensor{\delta}{^\mu_\alpha} \right) = 0
+\end{equation*}
+
+\noindent Since $\tensor{a}{^\alpha}$ is arbitrary, for the above to be true always, each "coefficient" of $\tensor{a}{^\alpha}$ must be zero:
+\begin{equation*}
+    \tensor{\partial}{_\mu} \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } - \mathscr{L} \tensor{\delta}{^\mu_\alpha} \right) = 0
+\end{equation*}
+
+\noindent Contract with $\tensor{\eta}{^\nu^\alpha}$
+\begin{equation*}
+    \tensor{\partial}{_\mu} \left( \underbrace{ \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \dfrac{ \partial \phi }{ \partial \tensor{x}{_\nu} } - \mathscr{L} \tensor{\eta}{^\mu^\nu} } \right) = 0
+\end{equation*}
+\begin{equation*}
+    = \tensor{T}{^\mu^\nu}
+\end{equation*}
+
+{%
+\begin{textblock*}{2in}(3in,-1.25in)%
+\begin{minipage}[h!]{2in}
+    \begin{align*}
+        &\longleftarrow \tensor{\eta}{^\nu^\alpha} \tensor{\partial}{_\mu} (\qquad) = 0 \\
+        &\qquad \Rightarrow \tensor{\partial}{_\mu} [ \tensor{\eta}{^\nu^\alpha} (\qquad) ] = 0
+    \end{align*}
+\end{minipage}%
+\end{textblock*}%
+}
+{%
+\begin{textblock*}{2in}(2.7in,-0.2in)%
+\begin{minipage}[h!]{2in}
+    \noindent The energy-momentum tensor for the scalar field $\phi$
+\end{minipage}%
+\end{textblock*}%
+}
+
+% Page 3a
+
+\newpage
+
+\begin{equation*}
+    \tensor{\partial}{_\mu} \tensor{T}{^\mu^\nu} = 0
+\end{equation*}
+
+\begin{equation*}
+    \tensor{\partial}{_0} \tensor{T}{^0^\nu} + \tensor{\partial}{_i} \tensor{T}{^i^\nu} = 0
+\end{equation*}
+
+\noindent \underline{$\nu = 0$}
+\begin{equation*}
+    \tensor{\partial}{_0} \tensor{T}{^0^0} + \tensor{\partial}{_i} \tensor{T}{^i^0} = 0 \hspace{0.5in} \mathrm{conservation} ~ \mathrm{of} ~ \mathrm{energy}
+\end{equation*}
+\begin{equation*}
+    \tensor{\partial}{_0} \int \mathrm{d}^3 x~ \tensor{T}{^0^0} = \tensor{\partial}{_0} \int \mathrm{d}^3 x~ \mathscr{H} = - \int \mathrm{d}^3 x~ \tensor{\partial}{_i} \tensor{T}{^i^0}
+\end{equation*}
+$\Rightarrow H = \int \mathrm{d}^3 x~ \mathscr{H}$ is the conserved "charge"
+
+\noindent \underline{$\nu = j$}
+\begin{equation*}
+    \tensor{\partial}{_0} \tensor{T}{^0^j} + \tensor{\partial}{_i} \tensor{T}{^i^j} = 0 \hspace{0.5in} \mathrm{conservation} ~ \mathrm{of} ~ \mathrm{momentum}
+\end{equation*}
+\begin{equation*}
+    \tensor{\partial}{_0} \int \mathrm{d}^3 x~ \tensor{T}{^0^j} =  - \int \mathrm{d}^3 x~ \tensor{\partial}{_i} \underbrace{ \tensor{T}{^i^j} } = 0
+\end{equation*}
+\hspace*{2.7in} {\small stress tensor}
+
+$\Rightarrow \tensor{P}{^i} = \int \mathrm{d}^3 x~ \underbrace{ \tensor{T}{^0^i} }$ is the conserved "charge"
+\\ \hspace*{0.75in} {\small momentum density}
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Page 4
+
+\noindent What about Lorentz invariance?
 
 \end{document}
