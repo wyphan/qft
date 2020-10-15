@@ -122,32 +122,11 @@ and $\tensor{a}{^0^,^1^,^2^,^3}$ are all constants (they can be different).
 
 \noindent Consider three points $P$, $Q$, and $R$, and their coordinates before and after the transformation:
 
-\begin{tikzpicture}
-    \node(p0) at (0,0)   {$P$}; \filldraw (p0.south) circle(2pt);
-    \node(q0) at (1.5,0) {$Q$}; \filldraw (q0.south) circle(2pt);
-    \node(r0) at (3,0)   {$R$}; \filldraw (r0.south) circle(2pt);
-    \node(p1) at (7,0)   {$P$}; \filldraw (p1.south) circle(2pt);
-    \node(q1) at (8.5,0) {$Q$}; \filldraw (q1.south) circle(2pt);
-    \node(r1) at (10,0)  {$R$}; \filldraw (r1.south) circle(2pt);
-    \node at (5,-0.75)  {before};
-    \node at (0,-0.75)    {$\mathbf{x} - \mathbf{a}$};
-    \node at (1.5,-0.75)  {$\mathbf{x}$};
-    \node at (3,-0.75)    {$\mathbf{x} + \mathbf{a}$};
-    \node at (7,-0.75)    {$\phi( \mathbf{x} - \mathbf{a} )$};
-    \node at (8.5,-0.75)  {$\phi( \mathbf{x} )$};
-    \node at (10,-0.75)   {$\phi( \mathbf{x} + \mathbf{a} )$};
-    \node at (5,-1.5)   {after};
-    \node at (0,-1.5)     {$\mathbf{x}' - \mathbf{a}$};
-    \node at (0,-2)       {$ = \mathbf{x} - 2 \mathbf{a}$};
-    \node at (1.5,-1.5)   {$\mathbf{x}'$};
-    \node at (1.5,-2)       {$ = \mathbf{x} - \mathbf{a} $};
-    \node at (3,-1.5)     {$\mathbf{x}' + \mathbf{a}$}
-    \node at (3,-2)       {$ = \mathbf{x} $};
-    \node at (7,-1.5)     {$\phi' ( \mathbf{x}' - \mathbf{a} )$};
-    \node at (8.5,-1.5)   {$\phi' ( \mathbf{x}' )$};
-    \node at (10,-1.5)    {$\phi' ( \mathbf{x}' + \mathbf{a} )$};
-    \node at (10,-2)        {$ = \phi' ( \mathbf{x} )$};
-\end{tikzpicture}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{pics/07-coordinate-transformation.pdf}
+    \label{fig:l7-coordinate-transformation}
+\end{figure}
 
 So, \underline{at $\mathbf{x}$}, \underline{we have replaced} the field \underline{$\phi (\mathbf{x})$ by $\phi ( \mathbf{x} + \mathbf{a} )$}, and
 \begin{align*}
