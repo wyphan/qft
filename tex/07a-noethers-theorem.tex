@@ -26,34 +26,28 @@
 \end{equation*}
 
 {%
-\begin{textblock*}{3.25in}(2.75in,-0.5in)%
-\begin{minipage}[h!]{3.25in}
-    \begin{align*}
+\begin{textblock*}{3.3in}(3.6in,-0.8in)%
+\begin{minipage}[h!]{3.3in}
+    \small%
+    \begin{center}
+        \boxed{REMINDER}
+    \end{center}
+    \vspace*{-12pt} \begin{align*}
         \tikzmarknode{inset}{~} \delta \mathscr{L} &= \bigg[ \underbrace{ \dfrac{ \partial \mathscr{L} }{ \partial \phi } - \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \right) }_{=0} \bigg] \delta \phi \\
         &\quad + \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \delta \phi \right) \\
-        &= \partial_\mu \left( \quad \right)
-    \end{align*}
-\end{minipage}%
-\end{textblock*}%
-}
-
-{%
-\begin{textblock*}{3.25in}(3.6in,0.75in)%
-\begin{minipage}[h!]{3.25in}
-    \begin{align*}
+        &= \partial_\mu \left( \quad \right) \\
         \delta S &= \int \mathrm{d}^4 x~ \delta \mathscr{L} \\
         &= \int \mathrm{d}^4 x~ \partial_\mu ( \quad ) \\
         &= 0
     \end{align*}
 \end{minipage}%
 \end{textblock*}%
-}
-
+}%
 \begin{tikzpicture}[overlay, remember picture]
     \draw[overlay,->] (inset.north) -- (deltaL.west);
 \end{tikzpicture}
 
-\noindent Assume the action also has the symmetry
+\vspace*{-18pt} \noindent Assume the action also has the symmetry
 \begin{equation*}
     \delta_\Delta S = 0
 \end{equation*}
@@ -128,7 +122,32 @@ and $\tensor{a}{^0^,^1^,^2^,^3}$ are all constants (they can be different).
 
 \noindent Consider three points $P$, $Q$, and $R$, and their coordinates before and after the transformation:
 
-% Insert diagram here
+\begin{tikzpicture}
+    \node(p0) at (0,0)   {$P$}; \filldraw (p0.south) circle(2pt);
+    \node(q0) at (1.5,0) {$Q$}; \filldraw (q0.south) circle(2pt);
+    \node(r0) at (3,0)   {$R$}; \filldraw (r0.south) circle(2pt);
+    \node(p1) at (7,0)   {$P$}; \filldraw (p1.south) circle(2pt);
+    \node(q1) at (8.5,0) {$Q$}; \filldraw (q1.south) circle(2pt);
+    \node(r1) at (10,0)  {$R$}; \filldraw (r1.south) circle(2pt);
+    \node at (5,-0.75)  {before};
+    \node at (0,-0.75)    {$\mathbf{x} - \mathbf{a}$};
+    \node at (1.5,-0.75)  {$\mathbf{x}$};
+    \node at (3,-0.75)    {$\mathbf{x} + \mathbf{a}$};
+    \node at (7,-0.75)    {$\phi( \mathbf{x} - \mathbf{a} )$};
+    \node at (8.5,-0.75)  {$\phi( \mathbf{x} )$};
+    \node at (10,-0.75)   {$\phi( \mathbf{x} + \mathbf{a} )$};
+    \node at (5,-1.5)   {after};
+    \node at (0,-1.5)     {$\mathbf{x}' - \mathbf{a}$};
+    \node at (0,-2)       {$ = \mathbf{x} - 2 \mathbf{a}$};
+    \node at (1.5,-1.5)   {$\mathbf{x}'$};
+    \node at (1.5,-2)       {$ = \mathbf{x} - \mathbf{a} $};
+    \node at (3,-1.5)     {$\mathbf{x}' + \mathbf{a}$}
+    \node at (3,-2)       {$ = \mathbf{x} $};
+    \node at (7,-1.5)     {$\phi' ( \mathbf{x}' - \mathbf{a} )$};
+    \node at (8.5,-1.5)   {$\phi' ( \mathbf{x}' )$};
+    \node at (10,-1.5)    {$\phi' ( \mathbf{x}' + \mathbf{a} )$};
+    \node at (10,-2)        {$ = \phi' ( \mathbf{x} )$};
+\end{tikzpicture}
 
 So, \underline{at $\mathbf{x}$}, \underline{we have replaced} the field \underline{$\phi (\mathbf{x})$ by $\phi ( \mathbf{x} + \mathbf{a} )$}, and
 \begin{align*}
@@ -279,5 +298,76 @@ $\Rightarrow \tensor{P}{^i} = \int \mathrm{d}^3 x~ \underbrace{ \tensor{T}{^0^i}
 % Page 4
 
 \noindent What about Lorentz invariance?
+
+\begin{equation*}
+    \tensor{x}{^\beta} \longrightarrow \tensor{\Lambda}{^\beta _\nu} \tensor{x}{^\nu} = \tensor{x}{^\beta} - \underbrace{ \tensor{\varepsilon}{^\beta _\nu} \tensor{x}{^\nu} }_{ \equiv \delta \tensor{x}{^\beta} } = \tensor{x}{^\beta} - \delta \tensor{x}{^\beta}
+\end{equation*}
+
+\noindent\rule{\textwidth}{.5pt}
+
+\noindent For the case where there is relative motion in the $x$-direction only, we know that the $(t, x)$ and $(t', x')$ coordinates are related by
+\begin{align*}
+    t' &= \gamma ( t - \beta x ) \\
+    x' &= \gamma ( x - \beta t )
+\end{align*}
+where
+\begin{align*}
+    \gamma &= {[ 1 - \left( \dfrac{v}{c} \right) ]}^{ -\frac{1}{2} } \\
+    \beta &= \dfrac{v}{c}
+\end{align*}
+and $v$ is the relative velocity.
+
+\noindent Then
+\begin{equation*}
+    \tensor{x}{^\prime^\mu} = %
+    \begin{pmatrix}
+        t' \\
+        x' \\
+        y' \\
+        z'
+    \end{pmatrix}%
+    = %
+    \begin{pmatrix}
+        \gamma & - \gamma \beta & 0 & 0 \\
+        - \gamma \beta & \gamma & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}%
+    \begin{pmatrix}
+        t \\
+        x \\
+        y \\
+        z
+    \end{pmatrix}%
+    \equiv \tensor{\Lambda}{^\mu _\nu} \tensor{x}{^\nu}
+\end{equation*}
+
+\noindent\rule{\textwidth}{.5pt}
+
+% Back to Page 4
+
+\noindent Then
+\begin{equation*}
+    \phi (\mathbf{x}) \longrightarrow \phi ( \Lambda^{-1} \mathbf{x} ) \tikzmarknode{lambda}{=} \phi (\mathbf{x}) - \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } \delta \tensor{x}{^\alpha}
+\end{equation*}
+and
+\begin{align*}
+    \delta_\Delta \phi &= \dfrac{ \partial \phi }{ \partial \tensor{x}{^\alpha} } \delta \tensor{x}{^\alpha} \\
+    &= \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu}
+\end{align*}
+
+\noindent Then
+\begin{align*}
+    \delta_\Delta ( \tensor{\partial}{_\mu} \phi ) &= \tensor{\partial}{_\mu} ( \delta_\Delta \phi ) \\
+    &= \tensor{\partial}{_\mu} \left( \tensor{\partial}{_\alpha} \phi ~ \tensor{\epsilon}{^\alpha _\nu} \tensor{x}{^\nu} \right) \\
+    &= ( \tensor{\partial}{_\mu} \tensor{\partial}{_\alpha} \phi ) ~ \tensor{\epsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{\delta}{^\nu _\mu} \\
+    &= ( \tensor{\partial}{_\mu} \tensor{\partial}{_\alpha} \phi ) ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu}
+\end{align*}
+
+\noindent Now
+\begin{align*}
+    \delta_\Delta \mathscr{L} &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \delta_\Delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \delta_\Delta ( \tensor{\partial}{_\mu} \phi ) \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \left[ ( \tensor{\partial}{_\mu} \tensor{\partial}{_\alpha} \phi ) ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu} \right]
+\end{align*}
 
 \end{document}
