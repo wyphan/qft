@@ -79,8 +79,6 @@ so, with a symmetry there is a conserved current.
 
 % Page 1a
 
-\noindent\rule{\textwidth}{.5pt}
-
 \noindent A conserved current will be associated with a conserved "charge"
 \begin{equation*}
     \partial_\mu \tensor{j}{^\mu} = \partial_0 \tensor{j}{^0} + \partial_i \tensor{j}{^i}
@@ -121,14 +119,15 @@ where
 and $\tensor{a}{^0^,^1^,^2^,^3}$ are all constants (they can be different).
 
 \noindent Consider three points $P$, $Q$, and $R$, and their coordinates before and after the transformation:
-
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{pics/07-coordinate-transformation.pdf}
+    \includegraphics[width=.99\textwidth]{pics/07-coordinate-transformation.pdf} %
     \label{fig:l7-coordinate-transformation}
 \end{figure}
 
-So, \underline{at $\mathbf{x}$}, \underline{we have replaced} the field \underline{$\phi (\mathbf{x})$ by $\phi ( \mathbf{x} + \mathbf{a} )$}, and
+\newpage
+
+\noindent So, \underline{at $\mathbf{x}$}, \underline{we have replaced} the field \underline{$\phi (\mathbf{x})$ by $\phi ( \mathbf{x} + \mathbf{a} )$}, and
 \begin{align*}
     \delta \phi (\mathbf{x}) &= \phi' (\mathbf{x}) - \phi (\mathbf{x}) \\
     &= \phi ( \mathbf{x} + \mathbf{a} ) - \phi (\mathbf{x}) \\
@@ -345,8 +344,12 @@ and
 
 \noindent Now
 \begin{align*}
-    \delta_\Delta \mathscr{L} &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \delta_\Delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \delta_\Delta ( \tensor{\partial}{_\mu} \phi ) \\
-    &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \left[ ( \tensor{\partial}{_\mu} \tensor{\partial}{_\alpha} \phi ) ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu} \right]
+    \delta_\Delta \mathscr{L} &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } ~ \delta_\Delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } ~ \delta_\Delta ( \tensor{\partial}{_\mu} \phi ) \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } ~ \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \left[ ( \tensor{\partial}{_\mu} \tensor{\partial}{_\alpha} \phi ) ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu} \right] \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial \tensor{x}{^\alpha} } ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } ~ \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu}
 \end{align*}
+
+% Page 5
+
 
 \end{document}
