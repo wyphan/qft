@@ -8,9 +8,10 @@
 \title{The Quantum Linear Chain}
 \author{Anthony Mezzacappa}
 \date{September 3, 2020}
+% Typeset by Shikha Bangar
 
 \begin{document}
-
+\setlength{\parskip}{1em}
 \maketitle
 
 \noindent Following the usual quantization procedure
@@ -29,16 +30,18 @@ where $\hat{q_n}(t)$ and $\hat{p_n}(t)$ are now operators satisfying the commuta
 
 \noindent Focusing on $\hat{q_n} (t)$:
 \begin{equation*}
-    \hat{q_n} (t) = \sum_l ( \hat{a}_l (t) u_{ n, l } + \hat{a}^\dagger_l (t) u^*_{n, l} )
+    \hat{q_n} (t) = \sum_l \left( \hat{a}_l (t) u_{ n, l } + \hat{a}^\dagger_l (t) u^*_{ n, l } \right)
 \end{equation*}
-where $\hat{a}^\dagger_l$ are now operators whose meaning is to be determined.
+where $\hat{a}^\dagger_l (t)$ are now operators whose meaning is to be determined.
 
 \noindent Similarly,
 \begin{equation*}
-    \hat{p}_n (t) = m \Dot{\hat{q}} (t) = i m \sum_l \omega_l \left( \hat{a}_l (t) u_{ n, l } - \hat{a}^\dagger_l u^*_{ n, l }  \right)
+    \hat{p}_n (t) = m \dot{\hat{q}} (t) = i m \sum_l \omega_l \left( \hat{a}_l (t) u_{ n, l } - \hat{a}^\dagger_l (t) u^*_{ n, l }  \right)
 \end{equation*}
 
 % Page 1a
+
+\noindent\rule{\textwidth}{.5pt}
 
 \noindent Let's invert the relationships
 \begin{align}
@@ -54,24 +57,24 @@ where $\hat{a}^\dagger_l$ are now operators whose meaning is to be determined.
 
 \begin{align}
     \sum_{ n = 1 }^N u^*_{ n, l' } \hat{p}_n (t) &= i m \sum_l \omega_l \biggl\lbrace \hat{a}_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u_{ n, l } - \hat{a}^\dagger_l (t) \sum_{ n = 1 }^N u^*_{ n, l' } u^*_{ n, l } \biggr\rbrace \nonumber \\
-    &= i m \omega_l \left[ \hat{a}_{l'} (t) - \hat{a}^\dagger_{-l'} (t)  \right] \label{eq4} % Equation 4
+    &= i m \omega_{l'} \left[ \hat{a}_{l'} (t) - \hat{a}^\dagger_{-l'} (t)  \right] \label{eq4} % Equation 4
 \end{align}
 
 % Page 1b
-Then from \eqref{eq3} and \eqref{eq4} 
+\noindent Then, from \eqref{eq3} and \eqref{eq4} 
 \begin{equation}
-    \hat{a}_{l'} (t) + \hat{a}^\dagger_{-l'} (t) = \sum_{n = 1}^N u^*_{n, l'} \hat{q}_n(t) \label{eq5}
+    \hat{a}_{l'} (t) + \hat{a}^\dagger_{-l'} (t) = \sum_{n = 1}^N u^*_{n, l'} \hat{q}_n(t) \label{eq5} % Equation 5
 \end{equation} 
 \begin{equation}
-    \hat{a}_{l'} (t) - \hat{a}^\dagger_{-l'} (t) = \sum_{n = 1}^N \frac{1}{im\omega} u^*_{n, l'} \hat{p}_n(t) \label{eq6}
+    \hat{a}_{l'} (t) - \hat{a}^\dagger_{-l'} (t) = \sum_{n = 1}^N \frac{1}{im\omega} u^*_{n, l'} \hat{p}_n(t) \label{eq6} % Equation 6
 \end{equation} 
 
-Adding \eqref{eq5} and \eqref{eq6},
+\noindent Adding \eqref{eq5} and \eqref{eq6},
 \begin{equation}
-    \hat{a}_{l'} (t) = \frac{1}{2} \sum_{n = 1}^N u^*_{n, l'} \left [ \hat{q}_n(t) + \frac{1}{im\omega}  \hat{p}_n(t) \right ]
+    \hat{a}_{l'} (t) = \frac{1}{2} \sum_{n = 1}^N u^*_{n, l'} \left[ \hat{q}_n(t) + \frac{1}{im\omega}  \hat{p}_n(t) \right]
 \end{equation}
 
-Since
+\noindent Since
 \begin{equation*}
     \hat{q}_n (t) = [\hat{q}_n (t)]^\dagger
 \end{equation*}
@@ -79,60 +82,69 @@ Since
         \hat{p}_n (t) = [\hat{p}_n (t)]^\dagger
 \end{equation*}
 
-We have,
+\noindent We have,
 \begin{equation*}
     \hat{a}^\dagger_{-l'} (t) = \frac{1}{2} \sum_{n = 1}^N u_{n, l'} \left [ \hat{q}_n(t) - \frac{1}{im\omega}  \hat{p}_n(t) \right ]
 \end{equation*}
 
+\noindent\rule{\textwidth}{.5pt}
+
 % Page 2
-The relationship we learned between $a_l (t)$ and $(q_n (t), p_n (t))$ now becomes the operator relation: 
+\noindent The relationship we learned between $a_l (t)$ and $\big(\, q_n (t), p_n (t) \,\big)$ now becomes the operator relation: 
 \begin{equation*}
     \hat{a}_l (t) = \frac{1}{2} \sum_{n = 1}^N u^*_{n, l} \left [ \hat{q}_n(t) + \frac{1}{im\omega}  \hat{p}_n(t) \right ]
 \end{equation*}
 
-We can use this to determine the commutator associated with the operator $\hat{a}(t)$:
-\begin{eqnarray*}
-       \left [ \hat{a}_l (t), \hat{a}^\dagger _{l'}(t) \right ] &=&   \frac{1}{4} \sum_n \sum_{n'} u^* _{n,l} u_{n',l'} \left \{  \left[ \hat{q}_n(t) + \frac{i}{m\omega_l}\hat{p}_n (t) \right] \left[ \hat{q}_{n'}(t) - \frac{i}{m\omega_{l'}}\hat{p}_{n'}(t) \right] \right. \\
-       && \left. - \left[ \hat{q}_{n'}(t) - \frac{i}{m\omega_{l}}\hat{p}_{n'}(t) \right]\left[ \hat{q}_n(t) + \frac{i}{m\omega_l}\hat{p}_n (t) \right] \right \} \\
-       &=& \frac{1}{4} \sum_n \sum_{n'}u^* _{n,l} u_{n',l'} \left \{ \hat{q}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'} (t) \hat{q}_n (t)  - \frac{i}{m\omega_l} \left( \hat{q}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{q}_n (t) \right) \right. \\
-       && \left. + \frac{i}{m\omega_l} \left( \hat{p}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'}(t) \hat{p}_n (t) \right)  -\left(\frac{i}{m\omega_l}\right)^2 \left( \hat{p}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{p}_n (t) \right) \right \} \\
-       &=& \frac{1}{4} \sum_n \sum_{n'}u^* _{n,l} u_{n',l'} \left \{ -\frac{i}{m \omega_l} i \delta_{nn'} + \frac{i}{m\omega_l} (-i \delta_{nn'})\right \} \\ 
-       &=& \frac{1}{2} \frac{1}{m \omega_l} \sum_{n}u^* _{n,l} u_{n',l'} \\ 
-       &=& \frac{1}{2m\omega_l} \delta_{ll'}
-\end{eqnarray*}
-
+\noindent We can use this to determine the commutator associated with the operator $\hat{a}(t)$:
+\begin{align*}
+       \big[\, \hat{a}_l (t), \hat{a}^\dagger _{l'}(t) \,\big] &= \frac{1}{4} \sum_n \sum_{n'} u^* _{n,l} u_{n',l'} \left\lbrace \left[ \hat{q}_n(t) + \frac{i}{ m \omega_l } ~ \hat{p}_n (t) \right] \left[ \hat{q}_{n'}(t) - \frac{i}{ m \omega_{l'} } ~ \hat{p}_{n'}(t) \right] \right. \\
+       &\hspace{1.4in} \left. - \left[ \hat{q}_{n'}(t) - \frac{i}{ m \omega_{l'} } ~ \hat{p}_{n'}(t) \right] \left[ \hat{q}_n(t) + \frac{i}{ m \omega_l } ~ \hat{p}_n (t) \right] \right\rbrace \\
+       %
+       &= \frac{1}{4} \sum_n \sum_{n'}u^*_{ n, l } u_{ n', l' } \Bigg\lbrace \hat{q}_n (t) \hat{q}_{n'} (t) - \hat{q}_{n'} (t) \hat{q}_n (t) \\
+       &\hspace{1.4in} - \frac{i}{ m \omega_{l'}v  } \Big( \hat{q}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{q}_n (t) \Big) \\
+       &\hspace{1.4in} + \frac{i}{m\omega_l} \Big( \hat{p}_n (t)\hat{q}_{n'} (t) - \hat{q}_{n'}(t) \hat{p}_n (t) \Big) \\
+       &\hspace{1.4in} - { \left( \frac{i}{m\omega_l} \right) }^2 \Big( \hat{p}_n (t)\hat{p}_{n'} (t) - \hat{p}_{n'}(t) \hat{p}_n (t) \Big) \Bigg\rbrace \\
+       %
+       &= \frac{1}{4} \sum_n \sum_{n'}u^* _{n,l} u_{n',l'} \left \{ -\frac{i}{m \omega_l} i \delta_{nn'} + \frac{i}{m\omega_l} (-i \delta_{nn'})\right \} \\ 
+       &= \frac{1}{2} \frac{1}{m \omega_l} \sum_{n}u^* _{n,l} u_{n',l'} \\ 
+       &= \frac{1}{2m\omega_l} \delta_{ll'}
+\end{align*}
+or
 \begin{equation*}
-    \left[ \sqrt{2m\omega_l} \hat{a}_l (t), \sqrt{2m\omega_{l'}} \hat{a}^\dagger _{l'}(t) \right ] = \delta{ll'}
+    \big[\, \sqrt{ 2m \omega_l } ~ \hat{a}_l (t), \sqrt{ 2m \omega_{l'} } ~ \hat{a}^\dagger_{l'} (t) \,\big] = \delta_{ll'}
 \end{equation*}
 
-Define, 
+\noindent Define, 
 \begin{equation*}
-    \hat{b}_l (t) \equiv \sqrt{2m\omega_l} \hat{a}_l (t)
+    \hat{b}_l (t) \equiv \sqrt{2m\omega_l} ~ \hat{a}_l (t)
 \end{equation*}
 
-\newpage
-Then,
-\begin{eqnarray*}
-     \left[ \hat{b}_l (t), \hat{b}^\dagger _{l'}(t) \right ] &=& \delta_{ll'} \\
-      \hat{b}(t) \hat{b}^\dagger(t) -  \hat{b}^\dagger (t) \hat{b}(t) &=& 1  
-\end{eqnarray*}
+\noindent Then,
+\begin{equation*}
+    \big[\, \hat{b}_l (t), \hat{b}^\dagger _{l'} (t) \,\big] = \delta_{ll'} %
+    \qquad \qquad \hat{b} \hat{b}^\dagger - \hat{b}^\dagger \hat{b} = 1  
+\end{equation*}
 
-Let's now guess the Hamiltonian in terms of $\hat{b}_l (t)$:
-\begin{eqnarray*}
-    H &=& \sum_l m \omega _l ^2 \left [ \hat{a}_l ^\dagger (t) \hat{a}_l (t) + \hat{a}_l (t) \hat{a}_l ^\dagger (t)  \right ] \\
-    &=& \sum_l m \omega _l ^2 \frac{1}{2m\omega_l} \left [ \hat{b}_l ^\dagger (t) \hat{b}_l (t) + \hat{b}_l (t) \hat{b}_l ^\dagger (t)  \right ] \\ 
-    &=& \frac{1}{2} \sum_l \omega_l \left [ 2\hat{b}_l ^\dagger (t) \hat{b}_l (t) + 1 \right] \\
-    &=& \sum_l \omega_l  \left [ \hat{b}_l ^\dagger (t) \hat{b}_l (t) + \frac{1}{2} \right] 
-\end{eqnarray*}
+\noindent Let's now guess the Hamiltonian in terms of $\hat{b}_l (t)$:
+\begin{align*}
+    H &= \sum_l m \omega _l ^2 \left[ \hat{a}_l ^\dagger (t) \hat{a}_l (t) + \hat{a}_l (t) \hat{a}_l ^\dagger (t)  \right] \\
+    &= \sum_l m \omega _l ^2 ~ \frac{1}{ 2 m \omega_l } \Big[\, \hat{b}_l ^\dagger (t) \hat{b}_l (t) + \underbrace{ \hat{b}_l (t) \hat{b}_l ^\dagger (t) }_{ 1 + \hat{b}_l^\dagger (t) \hat{b}_l (t) } \Big] \\ 
+    &= \tfrac{1}{2} \sum_l \omega_l \left[ 2 \hat{b}_l ^\dagger (t) \hat{b}_l (t) + 1 \right] \\
+    &= \sum_l \omega_l  \left[ \hat{b}_l ^\dagger (t) \hat{b}_l (t) + \tfrac{1}{2} \right] 
+\end{align*}
 
-Using the creation and annihilation operator for each mode $\hat{b}_l ^\dagger$ and $\hat{b}_l$, we can create the multiparticle state
+% Page 4
+
+\noindent Using the creation and annihilation operator for each mode $\hat{b}_l ^\dagger$ and $\hat{b}_l$, we can create the multiparticle state
 \begin{equation*}
     \ket{ n_1, n_2, n_3, \dots } = \prod_l \ket{n_l} 
 \end{equation*}
-where, 
-\begin{eqnarray*}
-    \ket{n_l} &=& \frac{1}{\sqrt{n!}} \left( \hat{b} _l ^\dagger \right)^{n_l} \ket{0_l}  \\
-    \braket{ n_l | n_l } &=& 1
-\end{eqnarray*}
-The state $\ket{0_l}$ is the vacuum state for the mode $l$. 
+where
+\begin{equation*}
+    \ket{n_l} = \frac{1}{\sqrt{n!}} \left( \hat{b} _l ^\dagger \right)^{n_l} \ket{0_l} %
+    \qquad \qquad \braket{ n_l | n_l } = 1
+\end{equation*}
+
+\noindent The state $\ket{0_l}$ is the vacuum state for the mode $l$. 
+
 \end{document}

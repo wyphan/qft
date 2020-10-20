@@ -13,6 +13,8 @@
 \title{Noether's Theorem}
 \author{Anthony Mezzacappa}
 \date{September 15 and 17, 2020}
+% Typeset by Wileam Phan
+% Diagram in Page 2a by Wileam Phan
 
 \begin{document}
 
@@ -79,8 +81,6 @@ so, with a symmetry there is a conserved current.
 
 % Page 1a
 
-\noindent\rule{\textwidth}{.5pt}
-
 \noindent A conserved current will be associated with a conserved "charge"
 \begin{equation*}
     \partial_\mu \tensor{j}{^\mu} = \partial_0 \tensor{j}{^0} + \partial_i \tensor{j}{^i}
@@ -121,35 +121,15 @@ where
 and $\tensor{a}{^0^,^1^,^2^,^3}$ are all constants (they can be different).
 
 \noindent Consider three points $P$, $Q$, and $R$, and their coordinates before and after the transformation:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.99\textwidth]{pics/07-coordinate-transformation.pdf} %
+    \label{fig:l7-coordinate-transformation}
+\end{figure}
 
-\begin{tikzpicture}
-    \node(p0) at (0,0)   {$P$}; \filldraw (p0.south) circle(2pt);
-    \node(q0) at (1.5,0) {$Q$}; \filldraw (q0.south) circle(2pt);
-    \node(r0) at (3,0)   {$R$}; \filldraw (r0.south) circle(2pt);
-    \node(p1) at (7,0)   {$P$}; \filldraw (p1.south) circle(2pt);
-    \node(q1) at (8.5,0) {$Q$}; \filldraw (q1.south) circle(2pt);
-    \node(r1) at (10,0)  {$R$}; \filldraw (r1.south) circle(2pt);
-    \node at (5,-0.75)  {before};
-    \node at (0,-0.75)    {$\mathbf{x} - \mathbf{a}$};
-    \node at (1.5,-0.75)  {$\mathbf{x}$};
-    \node at (3,-0.75)    {$\mathbf{x} + \mathbf{a}$};
-    \node at (7,-0.75)    {$\phi( \mathbf{x} - \mathbf{a} )$};
-    \node at (8.5,-0.75)  {$\phi( \mathbf{x} )$};
-    \node at (10,-0.75)   {$\phi( \mathbf{x} + \mathbf{a} )$};
-    \node at (5,-1.5)   {after};
-    \node at (0,-1.5)     {$\mathbf{x}' - \mathbf{a}$};
-    \node at (0,-2)       {$ = \mathbf{x} - 2 \mathbf{a}$};
-    \node at (1.5,-1.5)   {$\mathbf{x}'$};
-    \node at (1.5,-2)       {$ = \mathbf{x} - \mathbf{a} $};
-    \node at (3,-1.5)     {$\mathbf{x}' + \mathbf{a}$}
-    \node at (3,-2)       {$ = \mathbf{x} $};
-    \node at (7,-1.5)     {$\phi' ( \mathbf{x}' - \mathbf{a} )$};
-    \node at (8.5,-1.5)   {$\phi' ( \mathbf{x}' )$};
-    \node at (10,-1.5)    {$\phi' ( \mathbf{x}' + \mathbf{a} )$};
-    \node at (10,-2)        {$ = \phi' ( \mathbf{x} )$};
-\end{tikzpicture}
+\newpage
 
-So, \underline{at $\mathbf{x}$}, \underline{we have replaced} the field \underline{$\phi (\mathbf{x})$ by $\phi ( \mathbf{x} + \mathbf{a} )$}, and
+\noindent So, \underline{at $\mathbf{x}$}, \underline{we have replaced} the field \underline{$\phi (\mathbf{x})$ by $\phi ( \mathbf{x} + \mathbf{a} )$}, and
 \begin{align*}
     \delta \phi (\mathbf{x}) &= \phi' (\mathbf{x}) - \phi (\mathbf{x}) \\
     &= \phi ( \mathbf{x} + \mathbf{a} ) - \phi (\mathbf{x}) \\
@@ -366,8 +346,12 @@ and
 
 \noindent Now
 \begin{align*}
-    \delta_\Delta \mathscr{L} &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \delta_\Delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \delta_\Delta ( \tensor{\partial}{_\mu} \phi ) \\
-    &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \left[ ( \tensor{\partial}{_\mu} \tensor{\partial}{_\alpha} \phi ) ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu} \right]
+    \delta_\Delta \mathscr{L} &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } ~ \delta_\Delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } ~ \delta_\Delta ( \tensor{\partial}{_\mu} \phi ) \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial \phi } ~ \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \left[ ( \tensor{\partial}{_\mu} \tensor{\partial}{_\alpha} \phi ) ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu} \right] \\
+    &= \dfrac{ \partial \mathscr{L} }{ \partial \tensor{x}{^\alpha} } ~ \tensor{\varepsilon}{^\alpha _\nu} \tensor{x}{^\nu} + \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } ~ \tensor{\partial}{_\alpha} \phi ~ \tensor{\varepsilon}{^\alpha _\mu}
 \end{align*}
+
+% Page 5
+
 
 \end{document}
