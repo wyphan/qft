@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\usepackage{textpos}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+\title{Continuum Limit of the Linear Chain}
+\author{Anthony Mezzacappa}
+\date{September 8, 2020}
+% Typeset by Wileam Phan
+
+\begin{document}
+\setlength{\parskip}{1em}
+\maketitle
+
+$&\left.%
+\begin{array}{rl}
+    \tikzmarknode{a}{a} \!\!&\rightarrow 0 \\
+    N \!\!&\rightarrow 0
+\end{array}%
+\right\rbrace ~ l = Na = $ length of the chain $=$ constant
+{%
+\begin{textblock*}{1in}(-0.9in,-0.37in)%
+\begin{minipage}[h!]{1in}
+    \begin{equation*}
+        a \rightarrow \tikzmarknode{dx}{\mathrm{d} x}
+    \end{equation*}
+\end{minipage}%
+\end{textblock*}%
+}%
+%
+\vspace{-6pt}\quad%
+$\tikzmarknode{m}{m} \rightarrow 0$
+{%
+\begin{textblock*}{1in}(-0.9in,-0.28in)%
+\begin{minipage}[h!]{1in}
+    \begin{equation*}
+        m \rightarrow \tikzmarknode{dm}{\mathrm{d} m}
+    \end{equation*}
+\end{minipage}%
+\end{textblock*}%
+}
+%
+\quad $\rho = \dfrac{m}{a} = $ constant
+
+\quad $q_n (t) &\rightarrow \tikzmarknode{qxt}{q} ( x, t ) \longrightarrow $ \underline{\underline{ a scalar field! }}
+{%
+\begin{textblock*}{3in}(2.2in,-0.35in)%
+\begin{minipage}[h!]{3in}
+    \tikzmarknode{qlabel}{displacement} of infinitesimal mass at $x$
+\end{minipage}%
+\end{textblock*}%
+}
+
+$q_{n+1} (t) - q_n (t) \rightarrow dq = a \dfrac{ \partial q }{ \partial x }$
+
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (dx.east) -- (a.west);
+    \draw[overlay,->] (dm.east) -- (m.west);
+    \draw[overlay,->] (qlabel.west) -- (qxt.north);
+\end{tikzpicture}
+
+\vspace*{-24pt} \begin{displaymath}
+    \sum_{n=1}^{N} \rightarrow \dfrac{1}{a} \int_0^l \mathrm{d}x
+\end{displaymath}
+{%
+\begin{textblock*}{3in}(3.7in,-0.45in)%
+\begin{minipage}[h!]{3in}
+    (this just says $N = \dfrac{l}{a}$)
+\end{minipage}%
+\end{textblock*}%
+}
+
+$\sigma = \kappa a =$ constant $=$ string tension
+
+\noindent Then
+\begin{align*}
+    L ( q_n, \dot{q}_n ) &= \sum_n \left[ \dfrac{m}{2} ( \dot{q}_n )^2 - \dfrac{\kappa}{2} ( q_{n+1} - q_n )^2 \right] \\
+    &\rightarrow \dfrac{1}{a} \int_0^l \mathrm{d}x~ \dfrac{1}{2} \left[ \rho a { \left( \dfrac{ \partial q }{ \partial t } \right) }^2 - \dfrac{\sigma}{a} a^2 { \left( \dfrac{ \partial q }{ \partial x } \right) }^2 \right] \\
+    &= \dfrac{1}{2} \int_0^l \mathrm{d}x~ \left[ \rho { \left( \dfrac{ \partial q }{ \partial t } \right) }^2 - \sigma { \left( \dfrac{ \partial q }{ \partial x } \right) }^2 \right]
+\end{align*}
+and
+\begin{equation*}
+    \mathscr{L} ( \dot{q}, q' ) = \dfrac{1}{2} \left[ \rho { \left( \dfrac{ \partial q }{ \partial t } \right) }^2 - \sigma { \left( \dfrac{ \partial q }{ \partial x } \right) }^2 \right] %
+    \qquad \boxed{ q' \equiv \dfrac{ \partial q }{ \partial x } }
+\end{equation*}
+{%
+\begin{textblock*}{2in}(0.2in,-0.38in)%
+\begin{minipage}[h!]{2in}
+    "Lagrangian density"
+\end{minipage}%
+\end{textblock*}%
+}%
+and
+\begin{equation*}
+    S = \int_{t_i}^{t_f} L ~ \mathrm{d}t = \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \mathscr{L}
+\end{equation*}
+
+% Page 2-3
+
+\noindent The EOM are determined by extremizing the action.
+\begin{align*}
+    \delta S &= \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \delta \mathscr{L} \\
+    &= \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta \dot{q} + \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q' \right) \\
+    &= \int_0^l \mathrm{d}x \int_{t_i}^{t_f} \left[ \dfrac{\partial}{ \partial t } \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right) - \dfrac{\partial}{ \partial t } \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \right) \delta q \right] \mathrm{d}t \\
+    &\quad + \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \left[ \dfrac{\partial}{ \partial x } \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right) - \dfrac{\partial}{ \partial x } \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \right) \delta q \right] ~\mathrm{d}x \\
+    &= - \int_0^l \mathrm{d}x \int_{t_i}^{t_f} \mathrm{d}t~ \dfrac{\partial}{ \partial t } \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \right) \delta q \\
+    &\quad - \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x \dfrac{\partial}{ \partial x } \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \right) \delta q \\
+    &= - \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \left[ \dfrac{\partial}{ \partial t } \left( \rho \dfrac{ \partial q }{ \partial t } \right) + \dfrac{\partial}{ \partial x } \left( - \sigma \dfrac{ \partial q }{ \partial x } \right) \right] \delta q \\
+    &= - \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \left( \rho \dfrac{ \partial^2 q }{ \partial t^2 } - \sigma \dfrac{ \partial^2 q }{ \partial x^2 } \right) \delta \tikzmarknode{dq}{q} \\
+    &= 0
+\end{align*}
+{%
+\begin{textblock*}{3in}(4.2in,-0.45in)%
+\begin{minipage}[h!]{3in}
+    \tikzmarknode{dqlabel} now $\delta q = \delta q (x, t )$ \\
+    before $\delta q_n = \delta q_n (t)$ \\
+    $\Rightarrow ( \quad )$ must be 0
+\end{minipage}%
+\end{textblock*}%
+}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (dqlabel.west) -- (dq.south);
+\end{tikzpicture}
+
+\noindent Then the EOM for $q( x, t )$ is
+\begin{equation*}
+    \dfrac{ \partial^2 q }{ \partial t^2 } - \dfrac{\sigma}{\rho} \dfrac{ \partial^2 q }{ \partial x^2 } = 0
+\end{equation*}
+which is a wave equation, with wave speed
+\begin{equation*}
+    c = \sqrt{ \dfrac{\sigma}{\rho} }
+\end{equation*}
+
+% Page 2a
+\noindent\rule{\textwidth}{.5pt}
+
+\begin{align*}
+    & \int_0^l \mathrm{d}x \int_{t_i}^{t_f} \mathrm{d}t~ \dfrac{ \partial }{ \partial t } \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right) \\
+    &= \int_0^l \mathrm{d}x \left[ \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right)_{t_f} - \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right)_{t_i} \right] \\
+    &= 0
+\end{align*}
+since
+\begin{align*}
+    \delta q ( x, t_f ) &= 0 \mathrm{~ for ~ all ~} x \in [ 0, l ] \\
+    \delta q ( x, t_i ) &= 0 \mathrm{~ for ~ all ~} x \in [ 0, l ]
+\end{align*}
+
+\begin{align*}
+    & \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \dfrac{ \partial }{ \partial x } \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right) \\
+    &= \int_{t_i}^{t_f} \mathrm{d}t \left[ \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_l - \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_0 \right] \\
+    &= 0
+\end{align*}
+since
+\begin{equation*}
+    \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_l = \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_0
+\end{equation*}
+by periodicity.
+
+\end{document}
