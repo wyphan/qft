@@ -90,7 +90,7 @@ and
     \qquad \boxed{ q' \equiv \dfrac{ \partial q }{ \partial x } }
 \end{equation*}
 {%
-\begin{textblock*}{2in}(0.2in,-0.38in)%
+\begin{textblock*}{2in}(0.1in,-0.38in)%
 \begin{minipage}[h!]{2in}
     "Lagrangian density"
 \end{minipage}%
@@ -140,22 +140,18 @@ which is a wave equation, with wave speed
 % Page 2a
 \noindent\rule{\textwidth}{.5pt}
 
-\begin{align*}
-    & \int_0^l \mathrm{d}x \int_{t_i}^{t_f} \mathrm{d}t~ \dfrac{ \partial }{ \partial t } \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right) \\
-    &= \int_0^l \mathrm{d}x \left[ \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right)_{t_f} - \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right)_{t_i} \right] \\
-    &= 0
-\end{align*}
+\begin{equation*}
+    & \int_0^l \mathrm{d}x \int_{t_i}^{t_f} \mathrm{d}t~ \dfrac{ \partial }{ \partial t } \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right) = \int_0^l \mathrm{d}x \left[ \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right)_{t_f} - \left( \dfrac{ \partial \mathscr{L} }{ \partial \dot{q} } \delta q \right)_{t_i} \right] = 0
+\end{equation*}
 since
 \begin{align*}
     \delta q ( x, t_f ) &= 0 \mathrm{~ for ~ all ~} x \in [ 0, l ] \\
     \delta q ( x, t_i ) &= 0 \mathrm{~ for ~ all ~} x \in [ 0, l ]
 \end{align*}
 
-\begin{align*}
-    & \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \dfrac{ \partial }{ \partial x } \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right) \\
-    &= \int_{t_i}^{t_f} \mathrm{d}t \left[ \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_l - \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_0 \right] \\
-    &= 0
-\end{align*}
+\begin{equation*}
+    \int_{t_i}^{t_f} \mathrm{d}t \int_0^l \mathrm{d}x~ \dfrac{ \partial }{ \partial x } \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right) = \int_{t_i}^{t_f} \mathrm{d}t \left[ \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_l - \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_0 \right] = 0
+\end{equation*}
 since
 \begin{equation*}
     \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_l = \left( \dfrac{ \partial \mathscr{L} }{ \partial q' } \delta q \right)_0
