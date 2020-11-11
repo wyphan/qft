@@ -5,13 +5,95 @@
 \usepackage{fullpage}
 \usepackage{tensor}
 
+\usepackage{textpos}
+\usepackage{eso-pic}
+
 \title{Classical Field Theory}
 \author{Anthony Mezzacappa}
 \date{September 8 and 10, 2020}
-% Typeset by ...
+% Typeset by Wileam Phan
 
 \begin{document}
 \setlength{\parskip}{1em}
 \maketitle
+
+\noindent We can extend the Lagrangian formulation of classical dynamics for point particles to \underline{fields}.
+
+\noindent The correspondence is
+\begin{align*}
+    q (t) &\longrightarrow \phi (\mathbf{x}) \qquad \mathbf{x} = ( \vec{x}, t ) \\
+    \dot{q} (t) &\longrightarrow \tensor{\partial}{_\mu} \phi (\mathbf{x})
+\end{align*}
+
+\noindent We define a Lagrangian density related to the Lagrangian and Action by
+\begin{equation*}
+    S = \int \mathrm{d}t~ L = \int \mathrm{d}^4 \mathbf{x}~ \underbrace{ \mathscr{L} ( \phi, \tensor{\partial}{_\mu} \phi ) }
+\end{equation*}
+{%
+\begin{textblock*}{3in}(3.4in,-0.1in)%
+\begin{minipage}[h!]{3in}
+    LAGRANGIAN DENSITY
+\end{minipage}%
+\end{textblock*}%
+}
+
+\noindent Compute $\delta S$:
+\begin{align*}
+    \delta S &= \int \mathrm{d}^4 \mathbf{x}~ \left[ \dfrac{ \partial \mathscr{L} }{ \partial \phi } ~ \delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial( \tensor{\partial}{_\mu} \phi ) } ~ \delta ( \tensor{\partial}{_\mu} \phi ) \right] \\
+    &= \int \mathrm{d}^4 \mathbf{x}~ \left[ \dfrac{ \partial \mathscr{L} }{ \partial \phi } ~ \delta \phi + \dfrac{ \partial \mathscr{L} }{ \partial( \tensor{\partial}{_\mu} \phi ) } ~ \tensor{\partial}{_\mu} ( \delta \phi ) \right] \\
+    &= \left\lbrace \int \mathrm{d}^4 \mathbf{x}~ \dfrac{ \partial \mathscr{L} }{ \partial \phi } ~ \delta \phi + \left( \left. \dfrac{ \partial \mathscr{L} }{ \partial( \tensor{\partial}{_\mu} \phi ) } ~ \delta \phi \right|_{-\infty}^{+\infty} \right) - \int \mathrm{d}^4 \mathbf{x}~ \tensor{\partial}{_\mu} \left( \dfrac{ \partial \mathscr{L} }{ \partial( \tensor{\partial}{_\mu} \phi ) } \right) \delta \phi \right\rbrace \\
+    &= \int \mathrm{d}^4 \mathbf{x} \left[ \dfrac{ \partial \mathscr{L} }{ \partial \phi } - \tensor{\partial}{_\mu} \left( \dfrac{ \partial \mathscr{L} }{ \partial( \tensor{\partial}{_\mu} \phi ) } \right) \right] \delta \phi
+\end{align*}
+
+% Page 2
+
+\noindent Now instead of using $\delta q (t_i) = \delta q (t_f) = 0$, we simply assume that our fields are well-behaved functions of spacetime -- i.e., that they go to zero at $x = \pm \infty$.
+
+\noindent The solutions render the action on extremum ($\delta S = 0$) and satisfy the EOM
+\begin{equation*}
+    \dfrac{ \partial \mathscr{L} }{ \partial \phi } - \tensor{\partial}{_\mu} \left( \dfrac{ \partial \mathscr{L} }{ \partial( \tensor{\partial}{_\mu} \phi ) } \right) = 0
+\end{equation*}
+
+\noindent One can now define the momentum conjugate to $\phi$
+\begin{equation*}
+    \pi (\mathbf{x}) \equiv \dfrac{ \partial \mathscr{L} }{ \partial( \tensor{\partial}{_0} \phi (\mathbf{x}) ) }
+\end{equation*}
+and the Hamiltonian density
+\begin{equation*}
+    \mathscr{H} (\mathbf{x}) \equiv \pi (\mathbf{x}) ~ \tensor{\partial}{_0} \phi (\mathbf{x}) - \mathscr{L}
+\end{equation*}
+which is related to the Hamiltonian by
+\begin{equation*}
+    H = \int \mathrm{d}^3 \mathbf{x}~ \mathscr{H}
+\end{equation*}
+
+% Pages 3-4
+
+\noindent As an example, consider the following Lagrangian density
+\begin{equation*}
+    \mathscr{L} = \tfrac{1}{2} ( \tensor{\partial}{_\mu} \phi ) ( \tensor{\partial}{^\mu} \phi ) - \tfrac{1}{2} m^2 \phi^2
+\end{equation*}
+
+\noindent Then
+\begin{align*}
+    \dfrac{ \partial \mathscr{L} }{ \partial \phi } &= - m^2 \phi \\
+    \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } &= \dfrac{1}{2} \dfrac{\partial}{ \partial ( \tensor{\partial}{_\mu} \phi) } \left[ \tensor{\eta}{^\alpha^\beta} ( \tensor{\partial}{_\alpha} \phi ) ( \tensor{\partial}{_\beta} \phi ) \right] \\
+    &= \dfrac{1}{2} \tensor{\eta}{^\alpha^\beta} \dfrac{\partial}{ \partial ( \tensor{\partial}{_\mu} \phi) } \left[ ( \tensor{\partial}{_\alpha} \phi ) ( \tensor{\partial}{_\beta} \phi ) \right] \\
+    &= \dfrac{1}{2} \tensor{\eta}{^\alpha^\beta} \left[ \dfrac{\partial}{ \partial ( \tensor{\partial}{_\mu} \phi) } ( \tensor{\partial}{_\alpha} \phi ) \right] ( \tensor{\partial}{_\beta} \phi ) + \dfrac{1}{2} \tensor{\eta}{^\alpha^\beta} ( \tensor{\partial}{_\alpha} \phi ) \left[ \dfrac{\partial}{ \partial ( \tensor{\partial}{_\mu} \phi) }  ( \tensor{\partial}{_\beta} \phi ) \right] \\
+    &= \dfrac{1}{2} \tensor{\eta}{^\alpha^\beta} \tensor{\delta}{^\mu_\alpha} ~ \tensor{\partial}{_\beta} \phi + \dfrac{1}{2} \tensor{\eta}{^\alpha^\beta} ~ \tensor{\partial}{_\alpha} \phi ~ \tensor{\delta}{^\mu_\beta} \\
+    &= \dfrac{1}{2} \tensor{\partial}{^\mu} \phi + \dfrac{1}{2} \tensor{\partial}{^\mu} \phi \\
+    &= \tensor{\partial}{^\mu} \phi
+\end{align*}
+and
+\begin{align*}
+    \tensor{\partial}{_\mu} \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \tensor{\partial}{_\mu} \phi ) } \right) &= \tensor{\partial}{_\mu} ( \tensor{\partial}{^\mu} \phi ) \\
+    &= \Box ~ \phi
+\end{align*}
+
+\noindent The EOM then read
+\begin{equation*}
+    ( \Box + m^2 ) ~ \phi = 0
+\end{equation*}
+which is the Klein-Gordon equation.
 
 \end{document}
