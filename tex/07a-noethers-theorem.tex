@@ -2,8 +2,10 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{mathrsfs}
-\usepackage{braket}
 \usepackage{tensor}
+\usepackage{fullpage}
+
+\usepackage{graphicx}
 
 \usepackage{textpos}
 \usepackage{eso-pic}
@@ -28,14 +30,14 @@
 \end{equation*}
 
 {%
-\begin{textblock*}{3.3in}(3.6in,-0.8in)%
-\begin{minipage}[h!]{3.3in}
+\begin{textblock*}{3in}(4in,-1.4in)%
+\begin{minipage}[h!]{3in}
     \small%
     \begin{center}
         \boxed{REMINDER}
     \end{center}
     \vspace*{-12pt} \begin{align*}
-        \tikzmarknode{inset}{~} \delta \mathscr{L} &= \bigg[ \underbrace{ \dfrac{ \partial \mathscr{L} }{ \partial \phi } - \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \right) }_{=0} \bigg] \delta \phi \\
+        \tikzmarknode{inset}{~} \delta \mathscr{L} &= \bigg[ \overbrace{ \dfrac{ \partial \mathscr{L} }{ \partial \phi } - \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \right) }^{=0} \bigg] \delta \phi \\
         &\quad + \partial_\mu \left( \dfrac{ \partial \mathscr{L} }{ \partial ( \partial_\mu \phi ) } \delta \phi \right) \\
         &= \partial_\mu \left( \quad \right) \\
         \delta S &= \int \mathrm{d}^4 x~ \delta \mathscr{L} \\
@@ -49,7 +51,7 @@
     \draw[overlay,->] (inset.north) -- (deltaL.west);
 \end{tikzpicture}
 
-\vspace*{-18pt} \noindent Assume the action also has the symmetry
+\vspace*{-24pt} \noindent Assume the action also has the symmetry
 \begin{equation*}
     \delta_\Delta S = 0
 \end{equation*}
