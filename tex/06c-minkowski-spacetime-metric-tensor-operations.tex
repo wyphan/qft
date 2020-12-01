@@ -43,12 +43,12 @@
 \begin{textblock*}{3in}(1.55in,-0.2in)%
 \begin{minipage}[h!]{3in}
     \tikzmarknode{metric}{M}inkowski metric = %
-    \begin{pmatrix}
+    $\begin{pmatrix}
     -1 & 0 & 0 & 0 \\
     0  & 1 & 0 & 0 \\
     0  & 0 & 1 & 0 \\
     0  & 0 & 0 & 1
-    \end{pmatrix}
+    \end{pmatrix}$
 \end{minipage}%
 \end{textblock*}%
 }
@@ -58,7 +58,7 @@
     \draw[overlay,->] (metric.north) -- (eta.south);
 \end{tikzpicture}
 
-\vspace{-12pt} \begin{align*}
+\begin{align*}
     \tensor{\eta}{_0_0} &= -1 \\
     \tensor{\eta}{_i_i} &= 1 \\
     \tensor{\eta}{_\mu_\nu} &= 0 \qquad \mu \neq \nu \\
@@ -96,14 +96,14 @@ $\tilde{V} : T_P M^* \rightarrow \mathbb{R}$
     \tilde{V} = \tikzmarknode{1fmu}{\tensor{V}{_\mu}} \tikzmarknode{dxmu}{\tensor{\tilde{\mathrm{dx}}}{^\mu}}
 \end{equation*}
 {%
-\begin{textblock*}{1in}(2.4in,0.0in)%
+\begin{textblock*}{1in}(2.4in,-0.15in)%
 \begin{minipage}[h!]{1in}
     \tikzmarknode{mulabel2}{index down}
 \end{minipage}%
 \end{textblock*}%
 }%
 {%
-\begin{textblock*}{3in}(3.5in,0.0in)%
+\begin{textblock*}{3in}(3.5in,-0.2in)%
 \begin{minipage}[h!]{3in}
     \tikzmarknode{dxmulabel}{1}-form \underline{dual} to $\tensor{\hat{\mathbf{e}}}{_\mu}$ -- i.e., $\tensor{\tilde{\mathrm{dx}}}{^\mu} ( \tensor{\hat{\mathbf{e}}}{_\nu} ) = \tensor{\delta}{^\mu_\nu} $
 \end{minipage}%
@@ -119,5 +119,189 @@ $\tilde{V} : T_P M^* \rightarrow \mathbb{R}$
 \end{equation*}
 
 \noindent General Tensors are created via the \underline{Tensor Product}. Let's look at the important case of the \underline{Metric Tensor}
+
+\begin{equation*}
+\mathbf{\eta} \equiv \tensor{\eta}{_\mu_\nu} \tensor{\tilde{\mathbf{dx}}}{^\mu} \,\tikzmarknode{otimes}{\otimes}\, \tensor{\tilde{\mathbf{dx}}}{^\nu}
+\end{equation*}
+{%
+\begin{textblock*}{1in}(3in,0.0in)%
+\begin{minipage}[h!]{3in}
+    \tikzmarknode{tprod}{tensor product}
+\end{minipage}%
+\end{textblock*}%
+}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (tprod.north) -- (otimes.south);
+\end{tikzpicture}
+
+Then
+\begin{align*}
+	\vec{u} \tikzmarknode{inprod}{\cdot} \vec{v} \equiv \eta ( \tikzmarknode{uvec}{\vec{u}}, \tikzmarknode{vvec}{\vec{v}} ) &= \tensor{\eta}{_\mu_\nu} \tensor{\tilde{\mathbf{dx}}}{^\mu} \otimes \tensor{\tilde{\mathbf{dx}}}{^\nu} ( \vec{u}, \vec{v} ) \\
+	&= \tensor{\eta}{_\mu_\nu} \tensor{u}{^\alpha} \tensor{v}{^\beta} \tikzmarknode{dxmu}{\underbrace{\tensor{\tilde{\mathbf{dx}}}{^\mu} ( \tensor{\hat{\mathbf{e}}}{_\alpha} ) }} \tikzmarknode{dxnu}{\underbrace{\tensor{\tilde{\mathbf{dx}}}{^\nu} ( \tensor{\hat{\mathbf{e}}}{_\beta} ) }} \\
+	&= \tensor{\eta}{_\mu_\nu} \tensor{u}{^\alpha} \tensor{v}{^\beta} \tikzmarknode{dma}{\tensor{\delta}{^\mu_\alpha}} \tikzmarknode{dnb}{\tensor{\delta}{^\nu_\beta}} \\
+	&= \tensor{\eta}{_\mu_\nu} \tensor{u}{^\alpha} \tensor{v}{^\beta}
+\end{align*}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (dxmu.south) -- (dma.north);
+    \draw[overlay,->] (dxnu.south) -- (dnb.east);
+\end{tikzpicture}
+
+% Page 3
+
+\noindent Since this is just a scalar (a number), the following must be a 1-form
+\begin{align*}
+	\tikzmarknode{eta}{\eta} ( \vec{u}, \,\tikzmarknode{empty}{.}\, ) &= \tensor{\eta}{_\mu_\nu} \tensor{\tilde{\mathbf{dx}}}{^\mu} \otimes \tensor{\tilde{\mathbf{dx}}}{^\nu} ( \vec{u}, \,.\, ) \\
+	&= \tensor{\eta}{_\mu_\nu} \tensor{u}{^\alpha} \tensor{\tilde{\mathbf{dx}}}{^\mu} \otimes \tensor{\tilde{\mathbf{dx}}}{^\nu} ( \tensor{\hat{\mathbf{e}}}{_\alpha}, \,.\, ) \\
+	&= \tensor{\eta}{_\mu_\nu} \tensor{u}{^\alpha} \tensor{\delta}{^\mu_\alpha} \tensor{\tilde{\mathbf{dx}}}{^\nu} ( \,.\, ) \\
+	&= \tensor{\eta}{_\mu_\nu} \tensor{u}{^\mu} \tensor{\tilde{\mathbf{dx}}}{^\nu} ( \,.\, ) \\
+	&= \tensor{u}{_\nu} \tensor{\tilde{\mathbf{dx}}}{^\nu} ( \,.\, )
+\end{align*}
+
+\noindent That is, the metric raises and lowers indices (the inverse, $\tensor{\eta}{^\mu^\nu}$, would raise indices)
+\begin{align*}
+	\tensor{u}{_\nu} &= \tensor{\eta}{^\mu^\nu} \tensor{u}{^\mu} \\
+	\tensor{u}{_\mu} &= \tensor{\eta}{^\mu^\nu} \tensor{u}{_\nu}	
+\end{align*}
+
+% Page 4
+
+\noindent So the inner product
+\begin{align*}
+	\vec{u} \cdot \vec{v} &= \tensor{\eta}{_\alpha_\beta} \tensor{u}{^\alpha} \tensor{v}{^\beta} \\
+	&= \tensor{u}{_\beta} \tensor{\tilde{\mathbf{dx}}}{^\beta} ( \tensor{v}{^\alpha} \tensor{\hat{\mathbf{e}}}{_\alpha} ) = \tilde{u} ( \vec{v} ) \\
+	&= \tensor{u}{_\beta} \tensor{v}{^\beta} \\
+	&= \tensor{u}{_\beta} \tensor{v}{^\alpha} \tensor{\tilde{\mathbf{dx}}}{^\beta} ( \tensor{\hat{\mathbf{e}}}{_\alpha} ) \\
+	&= \tensor{u}{_\beta} \tensor{v}{^\alpha} \tensor{\delta}{^\beta_\alpha} \\
+	&= \tensor{u}{_\beta} \tensor{v}{^\beta}
+\end{align*}
+
+\noindent In Euclidean space in Cartesian coordinates, we write
+\begin{equation*}
+	\vec{u} \cdot \vec{v} \equiv \tensor{u}{^1} \tensor{v}{^1} + \tensor{u}{^2} \tensor{v}{^2} + \tensor{u}{^3} \tensor{v}{^3} \tikzmarknode{euclid}{\,}
+\end{equation*}
+{%
+\begin{textblock*}{1.7in}(4in,-0.2in)%
+\begin{minipage}[h!]{1.7in}
+    \tikzmarknode{diffgeom}{there's} a lot of differential geometry hidden here
+\end{minipage}%
+\end{textblock*}%
+}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (diffgeom.west) -- (euclid.east);
+\end{tikzpicture}
+which is really
+\begin{equation*}
+	\tensor{u}{_1} \tensor{v}{^1} + \tensor{u}{_2} \tensor{v}{^2} + \tensor{u}{_3} \tensor{v}{^3} \tikzmarknode{euclid}{\,}
+\end{equation*}
+
+\noindent But, given the metric
+\begin{equation*}
+	\tensor{\eta}{_i_j} = %
+	\begin{pmatrix}
+		1 &   & 0 \\
+		  & 1 &   \\
+		0 &   & 1
+	\end{pmatrix}
+\end{equation*}
+we have
+\begin{equation*}
+	\tensor{u}{_1} = \tensor{\eta}{_1_i} \tensor{u}{^i} = \tensor{\eta}{_1_1} \tensor{u}{^1} = (+1) \tensor{u}{^1} = \tensor{u}{^1}
+\end{equation*}
+so it doesn't matter.
+
+% Page 5
+
+\noindent But in Minkowski space, it \underline{does} matter.
+
+\noindent Note that
+\begin{equation*}
+	\vec{u} \cdot \vec{v} = \eta ( \vec{u}, \vec{v} ) = \tensor{u}{_\alpha} \tensor{v}{^\alpha}
+\end{equation*}
+is just a number. As a scalar, it is Lorentz invariant. That means that $\tensor{u}{_\alpha}$ and $\tensor{v}{^\alpha}$ must transform under a Lorentz transformation in an inverse manner.
+\begin{align*} % tensor package doesn't like \tensor{V}{^\mu'}
+	\tensor{V}{^\mu^\prime} &= \dfrac{ \partial \tensor{x}{^\mu^\prime} }{ \partial \tensor{x}{^\mu} } \tensor{V}{^\mu} \\
+	\tensor{V}{_\mu_\prime} &= \dfrac{ \partial \tensor{x}{^\mu} }{ \partial \tensor{x}{^\mu^\prime} } \tensor{V}{_\mu} \\
+\end{align*}
+
+\noindent Then
+\begin{align*}
+	\tensor{V}{^\mu^\prime} \tensor{V}{_\mu_\prime} &= \dfrac{ \partial \tensor{x}{^\mu^\prime} }{ \partial \tensor{x}{^\mu} } \dfrac{ \partial \tensor{x}{^\mu} }{ \partial \tensor{x}{^\mu^\prime} } \tensor{V}{^\mu} \tensor{V}{_\mu} \\
+	&= \tensor{V}{^\mu} \tensor{V}{_\mu}
+\end{align*}
+
+\noindent Some important specific tensors:
+\begin{itemize}
+
+	\item The differential (a 1-form)
+	\begin{equation*}
+	\tilde{\mathrm{d}f} = \dfrac{ \partial f }{ \partial \tensor{x}{^\mu} } ~ \tilde{ \mathrm{d} \tensor{x}{^\mu} } \equiv \tensor{\partial}{_\mu} f ~ \tilde{ \mathrm{d} \tensor{x}{^\mu} } 
+	\end{equation*}
+
+% Page 6
+	
+	\item The gradient (a contravariant vector) is defined by
+	\begin{align*}
+		\tilde{\mathrm{d}f} ( \tensor{\hat{\mathbf{e}}}{_\nu} ) &= \eta ( \vec{\nabla} f, \tensor{\hat{\mathbf{e}}}{_\nu} ) \\
+		&= \eta \left( \tensor{( \vec{\nabla} f )}{^\mu} ~ \tensor{\hat{\mathbf{e}}}{_\mu}, \tensor{\hat{\mathbf{e}}}{_\nu} \right) \\
+		&= \tensor{( \vec{\nabla} f )}{^\mu} ~ \eta ( \tensor{\hat{\mathbf{e}}}{_\mu}, \tensor{\hat{\mathbf{e}}}{_\nu} ) \\
+		&= \tensor{\eta}{_\mu_\nu} ~ \tensor{( \vec{\nabla} f )}{^\mu}
+	\end{align*}
+	But
+	\begin{equation*}
+		\tilde{\mathrm{d}f} ( \tensor{\hat{\mathbf{e}}}{_\nu} ) = \dfrac{ \partial f }{ \partial \tensor{x}{^\nu} }
+	\end{equation*}
+	Then
+	\begin{equation*}
+		\dfrac{ \partial f }{ \partial \tensor{x}{^\nu} } = \tensor{\eta}{_\mu_\nu} ~ \tensor{( \vec{\nabla} f )}{^\mu} \tikzmarknode{part1}{\,}
+	\end{equation*}
+	or
+	\begin{equation*}
+		\tensor{( \vec{\nabla} f )}{^\mu} = \tensor{\eta}{^\mu^\nu} \dfrac{ \partial f }{ \partial \tensor{x}{^\nu} } \tikzmarknode{part2}{\,}
+	\end{equation*}
+	{%
+	\begin{textblock*}{2in}(4.1in,-0.8in)%
+	\begin{minipage}[h!]{2in}
+		\begin{align*}
+		   \tensor{\eta}{^\alpha^\nu} ~ \tensor{\eta}{_\mu_\nu} ~ \tensor{( \vec{\nabla} f )}{^\mu} &= \tensor{\delta}{^\alpha_\mu} ~ \tensor{( \vec{\nabla} f )}{^\mu} \\
+			\tensor{\eta}{^\alpha^\nu} ~ \dfrac{ \partial f }{ \partial \tensor{x}{^\nu} } &= \tensor{( \vec{\nabla} f )}{^\alpha}
+		\end{align*}
+	\end{minipage}%
+	\end{textblock*}%
+	}
+	\begin{tikzpicture}[overlay, remember picture]
+		\draw[overlay,->] (part1.west) arc (90:-90:.6) -- (part2.west);
+	\end{tikzpicture}
+
+% Page 7
+
+	\noindent Since
+	\begin{equation*}
+		\dfrac{ \partial f }{ \partial \tensor{x}{^\mu} } = \tensor{\partial}{_\mu} f
+	\end{equation*}
+	we must have
+	\begin{align*}
+		\tensor{( \vec{\nabla} f )}{^\mu} &= \tensor{\eta}{^\mu^\nu} ~ \tensor{\partial}{_\nu} f \\
+		&= \tensor{\partial}{^\nu} f
+	\end{align*}
+
+	\item Since
+	\begin{equation*}
+		\tensor{\partial}{_\mu} = \dfrac{\partial}{ \partial \tensor{x}{^\mu} }
+	\end{equation*}
+	we must have
+	\begin{equation*}
+		\tensor{\partial}{^\mu} = \dfrac{\partial}{ \partial \tensor{x}{_\mu} }
+	\end{equation*}
+
+	\item The $\tensor{x}{_\mu}$ are the components of the 1-form dual to the position vector
+	\begin{equation*}
+		\vec{x} = \tensor{x}{^\mu} \tensor{\hat{\mathbf{e}}}{_\mu}
+	\end{equation*}
+	-- i.e.,
+	\begin{equation*}
+		\tilde{x} = \tensor{x}{_\mu} \tilde{ \mathrm{d} \tensor{x}{^\mu} }
+	\end{equation*}
+
+\end{itemize}
 
 \end{document}
