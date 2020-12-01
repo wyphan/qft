@@ -5,13 +5,119 @@
 \usepackage{tensor}
 \usepackage{fullpage}
 
+\usepackage{textpos}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
 \title{Minkowski Spacetime, Its Metric, and Tensor Operations}
 \author{Anthony Mezzacappa}
 \date{September 10, 2020}
-% Typeset by ...
+% Typeset by Wileam Phan
 
 \begin{document}
 \setlength{\parskip}{1em}
 \maketitle
+
+\begin{align*}
+    \tikzmarknode{ds2}{\mathrm{d} s^2} &= -c^2 ~ \mathrm{d}t^2 + \mathrm{d}x^2 + \mathrm{d}y^2 + \mathrm{d}z^2 \qquad \text{(assumes Cartesian coordinates)} \\
+    \tikzmarknode{dt2}{\,} &= -c^2 ~ \mathrm{d}\tau^2 \\
+    c^2 ~ \mathrm{d}\tau^2 &= c^2 ~ \mathrm{d}t^2 - \mathrm{d}x^2 - \mathrm{d}y^2 - \mathrm{d}z^2 \underset{c=1}{\longrightarrow} \mathrm{d}t^2 - \mathrm{d}x^2 - \mathrm{d}y^2 - \mathrm{d}z^2 \\
+    \mathrm{d}\tau^2 &= - \tikzmarknode{eta}{\tensor{\eta}{_\mu_\nu}} ~ \mathrm{d} \tensor{x}{^\mu} ~ \mathrm{d} \tensor{x}{^\nu} \equiv \tensor{\bar{\eta}}{_\mu_\nu} ~ \mathrm{d} \tensor{x}{^\mu} ~ \mathrm{d} \tensor{x}{^\nu}
+\end{align*}
+{%
+\begin{textblock*}{1in}(0.0in,-1.15in)%
+\begin{minipage}[h!]{1in}
+    \tikzmarknode{ds2label}{proper length}
+\end{minipage}%
+\end{textblock*}%
+}%
+{%
+\begin{textblock*}{1in}(0.0in,-0.9in)%
+\begin{minipage}[h!]{1in}
+    \tikzmarknode{dt2label}{proper time}
+\end{minipage}%
+\end{textblock*}%
+}
+{%
+\begin{textblock*}{3in}(1.55in,-0.2in)%
+\begin{minipage}[h!]{3in}
+    \tikzmarknode{metric}{M}inkowski metric = %
+    \begin{pmatrix}
+    -1 & 0 & 0 & 0 \\
+    0  & 1 & 0 & 0 \\
+    0  & 0 & 1 & 0 \\
+    0  & 0 & 0 & 1
+    \end{pmatrix}
+\end{minipage}%
+\end{textblock*}%
+}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (ds2label.east) -- (ds2.west);
+    \draw[overlay,->] (dt2label.east) -- (dt2.west);
+    \draw[overlay,->] (metric.north) -- (eta.south);
+\end{tikzpicture}
+
+\vspace{-12pt} \begin{align*}
+    \tensor{\eta}{_0_0} &= -1 \\
+    \tensor{\eta}{_i_i} &= 1 \\
+    \tensor{\eta}{_\mu_\nu} &= 0 \qquad \mu \neq \nu \\
+\end{align*}
+
+\vspace{-48pt} \begin{align*}
+    \mathrm{d}\tensor{x}{^0} &= \mathrm{d}t \\
+    \mathrm{d}\tensor{x}{^1} &= \mathrm{d}x \\
+    \mathrm{d}\tensor{x}{^2} &= \mathrm{d}y \\
+    \mathrm{d}\tensor{x}{^3} &= \mathrm{d}z
+\end{align*}
+
+\noindent All tensors are built from contravariant vectors (vectors) and covariant vectors (covectors or 1-forms).
+
+\section*{Contravariant Vector}
+$\vec{V} : T_P M \rightarrow \mathbb{R}$
+\begin{equation*}
+    \vec{V} = \tikzmarknode{cvvmu}{\tensor{V}{^\mu}} \tensor{\hat{\mathbf{e}}}{_\mu} \qquad \tikzmarknode{mulabel}{\text{index}} \text{ \underline{ on top} (\underline{contra}variant)} 
+\end{equation*}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (mulabel.north) -- +(0,0.2) -- +(-1.5,0.2) -- (cvvmu.north east);
+\end{tikzpicture}
+
+% Page 2
+
+\noindent N.B. The Einstein index convention is at play here:
+\begin{equation*}
+    \vec{V} = \underbrace{ \tensor{V}{^\mu} \tensor{\hat{\mathbf{e}}}{_\mu} } = \tensor{V}{^0} \tensor{\hat{\mathbf{e}}}{_0} + \tensor{V}{^1} \tensor{\hat{\mathbf{e}}}{_1} + \tensor{V}{^2} \tensor{\hat{\mathbf{e}}}{_2} + \tensor{V}{^3} \tensor{\hat{\mathbf{e}}}{_3}
+\end{equation*}
+\hspace{2.2in} sum over repeated indices
+
+\section*{Covariant Vector}
+$\tilde{V} : T_P M^* \rightarrow \mathbb{R}$
+\begin{equation*}
+    \tilde{V} = \tikzmarknode{1fmu}{\tensor{V}{_\mu}} \tikzmarknode{dxmu}{\tensor{\tilde{\mathrm{dx}}}{^\mu}}
+\end{equation*}
+{%
+\begin{textblock*}{1in}(2.4in,0.0in)%
+\begin{minipage}[h!]{1in}
+    \tikzmarknode{mulabel2}{index down}
+\end{minipage}%
+\end{textblock*}%
+}%
+{%
+\begin{textblock*}{3in}(3.5in,0.0in)%
+\begin{minipage}[h!]{3in}
+    \tikzmarknode{dxmulabel}{1}-form \underline{dual} to $\tensor{\hat{\mathbf{e}}}{_\mu}$ -- i.e., $\tensor{\tilde{\mathrm{dx}}}{^\mu} ( \tensor{\hat{\mathbf{e}}}{_\nu} ) = \tensor{\delta}{^\mu_\nu} $
+\end{minipage}%
+\end{textblock*}%
+}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[overlay,->] (mulabel2.east) -- (1fmu.south);
+    \draw[overlay,->] (dxmulabel.east) -- (dxmu.south);
+\end{tikzpicture}
+
+\vspace{-24pt} \begin{equation*}
+    \tilde{V} (\vec{V}) = \tilde{V} ( \tensor{V}{^\alpha} \tensor{\hat{\mathbf{e}}}{_\alpha} ) = \tensor{V}{_\beta} \tensor{V}{^\alpha} \tensor{\tilde{\mathrm{dx}}}{^\beta} ( \tensor{\hat{\mathbf{e}}}{_\alpha} )
+\end{equation*}
+
+\noindent General Tensors are created via the \underline{Tensor Product}. Let's look at the important case of the \underline{Metric Tensor}
 
 \end{document}
